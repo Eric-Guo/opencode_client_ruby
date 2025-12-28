@@ -20,9 +20,9 @@ Gem::Specification.new do |s|
   s.version     = OpencodeClient::VERSION
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["OpenCode AI"]
-  s.email       = [""]
-  s.homepage    = "https://opencode.ai"
-  s.summary     = "opencode Ruby Gem"
+  s.email       = ["eric.guocz@gmail.com"]
+  s.homepage    = 'https://github.com/Eric-Guo/wechat'  
+  s.summary     = "OpenCode Ruby Client Gem"
   s.description = "Ruby client for the OpenCode API"
   s.license     = "MIT"
   s.required_ruby_version = ">= 2.7"
