@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    opencode_client (1.0.1)
+    opencode_client (1.0.2)
       httpx (~> 1.0, >= 1.0.0)
 
 GEM
@@ -79,7 +79,7 @@ CHECKSUMS
   httpx (1.7.0) sha256=e219689555951f9c13c40862da120cdd2535e1454189bed589f04d7059557154
   jaro_winkler (1.5.6) sha256=007db7805527ada1cc12f2547676181d63b0a504ec4dd7a9a2eb2424521ccd81
   method_source (1.1.0) sha256=181301c9c45b731b4769bc81e8860e72f9161ad7d66dd99103c9ab84f560f5c5
-  opencode_client (1.0.1)
+  opencode_client (1.0.2)
   parallel (1.27.0) sha256=4ac151e1806b755fb4e2dc2332cbf0e54f2e24ba821ff2d3dcf86bf6dc4ae130
   parser (3.3.10.0) sha256=ce3587fa5cc55a88c4ba5b2b37621b3329aadf5728f9eafa36bbd121462aabd6
   pry (0.15.2) sha256=12d54b8640d3fa29c9211dd4ffb08f3fd8bf7a4fd9b5a73ce5b59c8709385b6b
