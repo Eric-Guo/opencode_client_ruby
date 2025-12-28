@@ -8,4 +8,4 @@ script:
   - bundle install --path vendor/bundle
   - bundle exec rspec
   - gem build opencode_client.gemspec
-  - gem install ./opencode_client-1.0.0.gem
+  - gem install ./opencode_client-1.0.1.gem
