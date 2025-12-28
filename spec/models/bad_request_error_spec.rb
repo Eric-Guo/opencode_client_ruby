@@ -42,7 +42,7 @@ describe OpencodeClient::BadRequestError do
   describe 'test attribute "success"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
-      # validator = Petstore::EnumTest::EnumAttributeValidator.new('Boolean', ["false"])
+      # validator = Petstore::EnumTest::EnumAttributeValidator.new('Boolean', ["false", false])
       # validator.allowable_values.each do |value|
       #   expect { instance.success = value }.not_to raise_error
       # end

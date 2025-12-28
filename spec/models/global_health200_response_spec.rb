@@ -30,7 +30,7 @@ describe OpencodeClient::GlobalHealth200Response do
   describe 'test attribute "healthy"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
-      # validator = Petstore::EnumTest::EnumAttributeValidator.new('Boolean', ["true"])
+      # validator = Petstore::EnumTest::EnumAttributeValidator.new('Boolean', ["true", true])
       # validator.allowable_values.each do |value|
       #   expect { instance.healthy = value }.not_to raise_error
       # end

@@ -123,7 +123,7 @@ module OpencodeClient
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
       return false if @healthy.nil?
-      healthy_validator = EnumAttributeValidator.new('Boolean', ["true"])
+      healthy_validator = EnumAttributeValidator.new('Boolean', ["true", true])
       return false unless healthy_validator.valid?(@healthy)
       return false if @version.nil?
       true
@@ -132,7 +132,7 @@ module OpencodeClient
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] healthy Object to be assigned
     def healthy=(healthy)
-      validator = EnumAttributeValidator.new('Boolean', ["true"])
+      validator = EnumAttributeValidator.new('Boolean', ["true", true])
       unless validator.valid?(healthy)
         fail ArgumentError, "invalid value for \"healthy\", must be one of #{validator.allowable_values}."
       end
