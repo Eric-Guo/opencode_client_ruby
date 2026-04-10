@@ -6,12 +6,25 @@ All URIs are relative to *http://localhost*
 | ------ | ------------ | ----------- |
 | [**app_agents**](DefaultApi.md#app_agents) | **GET** /agent | List agents |
 | [**app_log**](DefaultApi.md#app_log) | **POST** /log | Write log |
+| [**app_skills**](DefaultApi.md#app_skills) | **GET** /skill | List skills |
+| [**auth_remove**](DefaultApi.md#auth_remove) | **DELETE** /auth/{providerID} | Remove auth credentials |
 | [**auth_set**](DefaultApi.md#auth_set) | **PUT** /auth/{providerID} | Set auth credentials |
 | [**command_list**](DefaultApi.md#command_list) | **GET** /command | List commands |
 | [**config_get**](DefaultApi.md#config_get) | **GET** /config | Get configuration |
 | [**config_providers**](DefaultApi.md#config_providers) | **GET** /config/providers | List config providers |
 | [**config_update**](DefaultApi.md#config_update) | **PATCH** /config | Update configuration |
 | [**event_subscribe**](DefaultApi.md#event_subscribe) | **GET** /event | Subscribe to events |
+| [**experimental_console_get**](DefaultApi.md#experimental_console_get) | **GET** /experimental/console | Get active Console provider metadata |
+| [**experimental_console_list_orgs**](DefaultApi.md#experimental_console_list_orgs) | **GET** /experimental/console/orgs | List switchable Console orgs |
+| [**experimental_console_switch_org**](DefaultApi.md#experimental_console_switch_org) | **POST** /experimental/console/switch | Switch active Console org |
+| [**experimental_push_pair**](DefaultApi.md#experimental_push_pair) | **GET** /experimental/push/pair | Get push relay pairing QR |
+| [**experimental_push_status**](DefaultApi.md#experimental_push_status) | **GET** /experimental/push | Get push relay status |
+| [**experimental_push_test**](DefaultApi.md#experimental_push_test) | **POST** /experimental/push/test | Send test push event |
+| [**experimental_resource_list**](DefaultApi.md#experimental_resource_list) | **GET** /experimental/resource | Get MCP resources |
+| [**experimental_session_list**](DefaultApi.md#experimental_session_list) | **GET** /experimental/session | List sessions |
+| [**experimental_workspace_create**](DefaultApi.md#experimental_workspace_create) | **POST** /experimental/workspace | Create workspace |
+| [**experimental_workspace_list**](DefaultApi.md#experimental_workspace_list) | **GET** /experimental/workspace | List workspaces |
+| [**experimental_workspace_remove**](DefaultApi.md#experimental_workspace_remove) | **DELETE** /experimental/workspace/{id} | Remove workspace |
 | [**file_list**](DefaultApi.md#file_list) | **GET** /file | List files |
 | [**file_read**](DefaultApi.md#file_read) | **GET** /file/content | Read file |
 | [**file_status**](DefaultApi.md#file_status) | **GET** /file/status | Get file status |
@@ -19,9 +32,13 @@ All URIs are relative to *http://localhost*
 | [**find_symbols**](DefaultApi.md#find_symbols) | **GET** /find/symbol | Find symbols |
 | [**find_text**](DefaultApi.md#find_text) | **GET** /find | Find text |
 | [**formatter_status**](DefaultApi.md#formatter_status) | **GET** /formatter | Get formatter status |
+| [**global_config_get**](DefaultApi.md#global_config_get) | **GET** /global/config | Get global configuration |
+| [**global_config_update**](DefaultApi.md#global_config_update) | **PATCH** /global/config | Update global configuration |
 | [**global_dispose**](DefaultApi.md#global_dispose) | **POST** /global/dispose | Dispose instance |
 | [**global_event**](DefaultApi.md#global_event) | **GET** /global/event | Get global events |
 | [**global_health**](DefaultApi.md#global_health) | **GET** /global/health | Get health |
+| [**global_sync_event_subscribe**](DefaultApi.md#global_sync_event_subscribe) | **GET** /global/sync-event | Subscribe to global sync events |
+| [**global_upgrade**](DefaultApi.md#global_upgrade) | **POST** /global/upgrade | Upgrade opencode |
 | [**instance_dispose**](DefaultApi.md#instance_dispose) | **POST** /instance/dispose | Dispose instance |
 | [**lsp_status**](DefaultApi.md#lsp_status) | **GET** /lsp | Get LSP status |
 | [**mcp_add**](DefaultApi.md#mcp_add) | **POST** /mcp | Add MCP server |
@@ -36,8 +53,10 @@ All URIs are relative to *http://localhost*
 | [**part_update**](DefaultApi.md#part_update) | **PATCH** /session/{sessionID}/message/{messageID}/part/{partID} |  |
 | [**path_get**](DefaultApi.md#path_get) | **GET** /path | Get paths |
 | [**permission_list**](DefaultApi.md#permission_list) | **GET** /permission | List pending permissions |
+| [**permission_reply**](DefaultApi.md#permission_reply) | **POST** /permission/{requestID}/reply | Respond to permission request |
 | [**permission_respond**](DefaultApi.md#permission_respond) | **POST** /session/{sessionID}/permissions/{permissionID} | Respond to permission |
 | [**project_current**](DefaultApi.md#project_current) | **GET** /project/current | Get current project |
+| [**project_init_git**](DefaultApi.md#project_init_git) | **POST** /project/git/init | Initialize git repository |
 | [**project_list**](DefaultApi.md#project_list) | **GET** /project | List all projects |
 | [**project_update**](DefaultApi.md#project_update) | **PATCH** /project/{projectID} | Update project |
 | [**provider_auth**](DefaultApi.md#provider_auth) | **GET** /provider/auth | Get provider auth methods |
@@ -50,11 +69,15 @@ All URIs are relative to *http://localhost*
 | [**pty_list**](DefaultApi.md#pty_list) | **GET** /pty | List PTY sessions |
 | [**pty_remove**](DefaultApi.md#pty_remove) | **DELETE** /pty/{ptyID} | Remove PTY session |
 | [**pty_update**](DefaultApi.md#pty_update) | **PUT** /pty/{ptyID} | Update PTY session |
+| [**question_list**](DefaultApi.md#question_list) | **GET** /question | List pending questions |
+| [**question_reject**](DefaultApi.md#question_reject) | **POST** /question/{requestID}/reject | Reject question request |
+| [**question_reply**](DefaultApi.md#question_reply) | **POST** /question/{requestID}/reply | Reply to question request |
 | [**session_abort**](DefaultApi.md#session_abort) | **POST** /session/{sessionID}/abort | Abort session |
 | [**session_command**](DefaultApi.md#session_command) | **POST** /session/{sessionID}/command | Send command |
 | [**session_create**](DefaultApi.md#session_create) | **POST** /session | Create session |
 | [**session_delete**](DefaultApi.md#session_delete) | **DELETE** /session/{sessionID} | Delete session |
-| [**session_diff**](DefaultApi.md#session_diff) | **GET** /session/{sessionID}/diff | Get session diff |
+| [**session_delete_message**](DefaultApi.md#session_delete_message) | **DELETE** /session/{sessionID}/message/{messageID} | Delete message |
+| [**session_diff**](DefaultApi.md#session_diff) | **GET** /session/{sessionID}/diff | Get message diff |
 | [**session_fork**](DefaultApi.md#session_fork) | **POST** /session/{sessionID}/fork | Fork session |
 | [**session_init**](DefaultApi.md#session_init) | **POST** /session/{sessionID}/init | Initialize session |
 | [**session_list**](DefaultApi.md#session_list) | **GET** /session | List sessions |
@@ -83,9 +106,15 @@ All URIs are relative to *http://localhost*
 | [**tui_open_sessions**](DefaultApi.md#tui_open_sessions) | **POST** /tui/open-sessions | Open sessions dialog |
 | [**tui_open_themes**](DefaultApi.md#tui_open_themes) | **POST** /tui/open-themes | Open themes dialog |
 | [**tui_publish**](DefaultApi.md#tui_publish) | **POST** /tui/publish | Publish TUI event |
+| [**tui_select_session**](DefaultApi.md#tui_select_session) | **POST** /tui/select-session | Select session |
 | [**tui_show_toast**](DefaultApi.md#tui_show_toast) | **POST** /tui/show-toast | Show TUI toast |
 | [**tui_submit_prompt**](DefaultApi.md#tui_submit_prompt) | **POST** /tui/submit-prompt | Submit TUI prompt |
+| [**vcs_diff**](DefaultApi.md#vcs_diff) | **GET** /vcs/diff | Get VCS diff |
 | [**vcs_get**](DefaultApi.md#vcs_get) | **GET** /vcs | Get VCS info |
+| [**worktree_create**](DefaultApi.md#worktree_create) | **POST** /experimental/worktree | Create worktree |
+| [**worktree_list**](DefaultApi.md#worktree_list) | **GET** /experimental/worktree | List worktrees |
+| [**worktree_remove**](DefaultApi.md#worktree_remove) | **DELETE** /experimental/worktree | Remove worktree |
+| [**worktree_reset**](DefaultApi.md#worktree_reset) | **POST** /experimental/worktree/reset | Reset worktree |
 
 
 ## app_agents
@@ -104,7 +133,8 @@ require 'opencode_client'
 
 api_instance = OpencodeClient::DefaultApi.new
 opts = {
-  directory: 'directory_example' # String | 
+  directory: 'directory_example', # String | 
+  workspace: 'workspace_example' # String | 
 }
 
 begin
@@ -139,6 +169,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **directory** | **String** |  | [optional] |
+| **workspace** | **String** |  | [optional] |
 
 ### Return type
 
@@ -171,6 +202,7 @@ require 'opencode_client'
 api_instance = OpencodeClient::DefaultApi.new
 opts = {
   directory: 'directory_example', # String | 
+  workspace: 'workspace_example', # String | 
   app_log_request: OpencodeClient::AppLogRequest.new({service: 'service_example', level: 'debug', message: 'message_example'}) # AppLogRequest | 
 }
 
@@ -206,6 +238,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **directory** | **String** |  | [optional] |
+| **workspace** | **String** |  | [optional] |
 | **app_log_request** | [**AppLogRequest**](AppLogRequest.md) |  | [optional] |
 
 ### Return type
@@ -219,6 +252,138 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## app_skills
+
+> <Array<AppSkills200ResponseInner>> app_skills(opts)
+
+List skills
+
+Get a list of all available skills in the OpenCode system.
+
+### Examples
+
+```ruby
+require 'time'
+require 'opencode_client'
+
+api_instance = OpencodeClient::DefaultApi.new
+opts = {
+  directory: 'directory_example', # String | 
+  workspace: 'workspace_example' # String | 
+}
+
+begin
+  # List skills
+  result = api_instance.app_skills(opts)
+  p result
+rescue OpencodeClient::ApiError => e
+  puts "Error when calling DefaultApi->app_skills: #{e}"
+end
+```
+
+#### Using the app_skills_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<Array<AppSkills200ResponseInner>>, Integer, Hash)> app_skills_with_http_info(opts)
+
+```ruby
+begin
+  # List skills
+  data, status_code, headers = api_instance.app_skills_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <Array<AppSkills200ResponseInner>>
+rescue OpencodeClient::ApiError => e
+  puts "Error when calling DefaultApi->app_skills_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **directory** | **String** |  | [optional] |
+| **workspace** | **String** |  | [optional] |
+
+### Return type
+
+[**Array&lt;AppSkills200ResponseInner&gt;**](AppSkills200ResponseInner.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## auth_remove
+
+> Boolean auth_remove(provider_id)
+
+Remove auth credentials
+
+Remove authentication credentials
+
+### Examples
+
+```ruby
+require 'time'
+require 'opencode_client'
+
+api_instance = OpencodeClient::DefaultApi.new
+provider_id = 'provider_id_example' # String | 
+
+begin
+  # Remove auth credentials
+  result = api_instance.auth_remove(provider_id)
+  p result
+rescue OpencodeClient::ApiError => e
+  puts "Error when calling DefaultApi->auth_remove: #{e}"
+end
+```
+
+#### Using the auth_remove_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(Boolean, Integer, Hash)> auth_remove_with_http_info(provider_id)
+
+```ruby
+begin
+  # Remove auth credentials
+  data, status_code, headers = api_instance.auth_remove_with_http_info(provider_id)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => Boolean
+rescue OpencodeClient::ApiError => e
+  puts "Error when calling DefaultApi->auth_remove_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **provider_id** | **String** |  |  |
+
+### Return type
+
+**Boolean**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 
@@ -239,7 +404,6 @@ require 'opencode_client'
 api_instance = OpencodeClient::DefaultApi.new
 provider_id = 'provider_id_example' # String | 
 opts = {
-  directory: 'directory_example', # String | 
   auth: OpencodeClient::Auth.new({type: 'oauth', refresh: 'refresh_example', access: 'access_example', expires: 3.56, key: 'key_example', token: 'token_example'}) # Auth | 
 }
 
@@ -275,7 +439,6 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **provider_id** | **String** |  |  |
-| **directory** | **String** |  | [optional] |
 | **auth** | [**Auth**](Auth.md) |  | [optional] |
 
 ### Return type
@@ -308,7 +471,8 @@ require 'opencode_client'
 
 api_instance = OpencodeClient::DefaultApi.new
 opts = {
-  directory: 'directory_example' # String | 
+  directory: 'directory_example', # String | 
+  workspace: 'workspace_example' # String | 
 }
 
 begin
@@ -343,6 +507,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **directory** | **String** |  | [optional] |
+| **workspace** | **String** |  | [optional] |
 
 ### Return type
 
@@ -374,7 +539,8 @@ require 'opencode_client'
 
 api_instance = OpencodeClient::DefaultApi.new
 opts = {
-  directory: 'directory_example' # String | 
+  directory: 'directory_example', # String | 
+  workspace: 'workspace_example' # String | 
 }
 
 begin
@@ -409,6 +575,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **directory** | **String** |  | [optional] |
+| **workspace** | **String** |  | [optional] |
 
 ### Return type
 
@@ -440,7 +607,8 @@ require 'opencode_client'
 
 api_instance = OpencodeClient::DefaultApi.new
 opts = {
-  directory: 'directory_example' # String | 
+  directory: 'directory_example', # String | 
+  workspace: 'workspace_example' # String | 
 }
 
 begin
@@ -475,6 +643,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **directory** | **String** |  | [optional] |
+| **workspace** | **String** |  | [optional] |
 
 ### Return type
 
@@ -507,6 +676,7 @@ require 'opencode_client'
 api_instance = OpencodeClient::DefaultApi.new
 opts = {
   directory: 'directory_example', # String | 
+  workspace: 'workspace_example', # String | 
   config: OpencodeClient::Config.new # Config | 
 }
 
@@ -542,6 +712,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **directory** | **String** |  | [optional] |
+| **workspace** | **String** |  | [optional] |
 | **config** | [**Config**](Config.md) |  | [optional] |
 
 ### Return type
@@ -574,7 +745,8 @@ require 'opencode_client'
 
 api_instance = OpencodeClient::DefaultApi.new
 opts = {
-  directory: 'directory_example' # String | 
+  directory: 'directory_example', # String | 
+  workspace: 'workspace_example' # String | 
 }
 
 begin
@@ -609,6 +781,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **directory** | **String** |  | [optional] |
+| **workspace** | **String** |  | [optional] |
 
 ### Return type
 
@@ -622,6 +795,774 @@ No authorization required
 
 - **Content-Type**: Not defined
 - **Accept**: text/event-stream
+
+
+## experimental_console_get
+
+> <ExperimentalConsoleGet200Response> experimental_console_get(opts)
+
+Get active Console provider metadata
+
+Get the active Console org name and the set of provider IDs managed by that Console org.
+
+### Examples
+
+```ruby
+require 'time'
+require 'opencode_client'
+
+api_instance = OpencodeClient::DefaultApi.new
+opts = {
+  directory: 'directory_example', # String | 
+  workspace: 'workspace_example' # String | 
+}
+
+begin
+  # Get active Console provider metadata
+  result = api_instance.experimental_console_get(opts)
+  p result
+rescue OpencodeClient::ApiError => e
+  puts "Error when calling DefaultApi->experimental_console_get: #{e}"
+end
+```
+
+#### Using the experimental_console_get_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ExperimentalConsoleGet200Response>, Integer, Hash)> experimental_console_get_with_http_info(opts)
+
+```ruby
+begin
+  # Get active Console provider metadata
+  data, status_code, headers = api_instance.experimental_console_get_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ExperimentalConsoleGet200Response>
+rescue OpencodeClient::ApiError => e
+  puts "Error when calling DefaultApi->experimental_console_get_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **directory** | **String** |  | [optional] |
+| **workspace** | **String** |  | [optional] |
+
+### Return type
+
+[**ExperimentalConsoleGet200Response**](ExperimentalConsoleGet200Response.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## experimental_console_list_orgs
+
+> <ExperimentalConsoleListOrgs200Response> experimental_console_list_orgs(opts)
+
+List switchable Console orgs
+
+Get the available Console orgs across logged-in accounts, including the current active org.
+
+### Examples
+
+```ruby
+require 'time'
+require 'opencode_client'
+
+api_instance = OpencodeClient::DefaultApi.new
+opts = {
+  directory: 'directory_example', # String | 
+  workspace: 'workspace_example' # String | 
+}
+
+begin
+  # List switchable Console orgs
+  result = api_instance.experimental_console_list_orgs(opts)
+  p result
+rescue OpencodeClient::ApiError => e
+  puts "Error when calling DefaultApi->experimental_console_list_orgs: #{e}"
+end
+```
+
+#### Using the experimental_console_list_orgs_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ExperimentalConsoleListOrgs200Response>, Integer, Hash)> experimental_console_list_orgs_with_http_info(opts)
+
+```ruby
+begin
+  # List switchable Console orgs
+  data, status_code, headers = api_instance.experimental_console_list_orgs_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ExperimentalConsoleListOrgs200Response>
+rescue OpencodeClient::ApiError => e
+  puts "Error when calling DefaultApi->experimental_console_list_orgs_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **directory** | **String** |  | [optional] |
+| **workspace** | **String** |  | [optional] |
+
+### Return type
+
+[**ExperimentalConsoleListOrgs200Response**](ExperimentalConsoleListOrgs200Response.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## experimental_console_switch_org
+
+> Boolean experimental_console_switch_org(opts)
+
+Switch active Console org
+
+Persist a new active Console account/org selection for the current local OpenCode state.
+
+### Examples
+
+```ruby
+require 'time'
+require 'opencode_client'
+
+api_instance = OpencodeClient::DefaultApi.new
+opts = {
+  directory: 'directory_example', # String | 
+  workspace: 'workspace_example', # String | 
+  experimental_console_switch_org_request: OpencodeClient::ExperimentalConsoleSwitchOrgRequest.new({account_id: 'account_id_example', org_id: 'org_id_example'}) # ExperimentalConsoleSwitchOrgRequest | 
+}
+
+begin
+  # Switch active Console org
+  result = api_instance.experimental_console_switch_org(opts)
+  p result
+rescue OpencodeClient::ApiError => e
+  puts "Error when calling DefaultApi->experimental_console_switch_org: #{e}"
+end
+```
+
+#### Using the experimental_console_switch_org_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(Boolean, Integer, Hash)> experimental_console_switch_org_with_http_info(opts)
+
+```ruby
+begin
+  # Switch active Console org
+  data, status_code, headers = api_instance.experimental_console_switch_org_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => Boolean
+rescue OpencodeClient::ApiError => e
+  puts "Error when calling DefaultApi->experimental_console_switch_org_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **directory** | **String** |  | [optional] |
+| **workspace** | **String** |  | [optional] |
+| **experimental_console_switch_org_request** | [**ExperimentalConsoleSwitchOrgRequest**](ExperimentalConsoleSwitchOrgRequest.md) |  | [optional] |
+
+### Return type
+
+**Boolean**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## experimental_push_pair
+
+> <PushPairResult> experimental_push_pair(opts)
+
+Get push relay pairing QR
+
+Get the active push relay pairing payload and QR code for mobile setup.
+
+### Examples
+
+```ruby
+require 'time'
+require 'opencode_client'
+
+api_instance = OpencodeClient::DefaultApi.new
+opts = {
+  directory: 'directory_example', # String | 
+  workspace: 'workspace_example' # String | 
+}
+
+begin
+  # Get push relay pairing QR
+  result = api_instance.experimental_push_pair(opts)
+  p result
+rescue OpencodeClient::ApiError => e
+  puts "Error when calling DefaultApi->experimental_push_pair: #{e}"
+end
+```
+
+#### Using the experimental_push_pair_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<PushPairResult>, Integer, Hash)> experimental_push_pair_with_http_info(opts)
+
+```ruby
+begin
+  # Get push relay pairing QR
+  data, status_code, headers = api_instance.experimental_push_pair_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <PushPairResult>
+rescue OpencodeClient::ApiError => e
+  puts "Error when calling DefaultApi->experimental_push_pair_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **directory** | **String** |  | [optional] |
+| **workspace** | **String** |  | [optional] |
+
+### Return type
+
+[**PushPairResult**](PushPairResult.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## experimental_push_status
+
+> <ExperimentalPushStatus200Response> experimental_push_status(opts)
+
+Get push relay status
+
+Get experimental push relay runtime status for this server.
+
+### Examples
+
+```ruby
+require 'time'
+require 'opencode_client'
+
+api_instance = OpencodeClient::DefaultApi.new
+opts = {
+  directory: 'directory_example', # String | 
+  workspace: 'workspace_example' # String | 
+}
+
+begin
+  # Get push relay status
+  result = api_instance.experimental_push_status(opts)
+  p result
+rescue OpencodeClient::ApiError => e
+  puts "Error when calling DefaultApi->experimental_push_status: #{e}"
+end
+```
+
+#### Using the experimental_push_status_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ExperimentalPushStatus200Response>, Integer, Hash)> experimental_push_status_with_http_info(opts)
+
+```ruby
+begin
+  # Get push relay status
+  data, status_code, headers = api_instance.experimental_push_status_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ExperimentalPushStatus200Response>
+rescue OpencodeClient::ApiError => e
+  puts "Error when calling DefaultApi->experimental_push_status_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **directory** | **String** |  | [optional] |
+| **workspace** | **String** |  | [optional] |
+
+### Return type
+
+[**ExperimentalPushStatus200Response**](ExperimentalPushStatus200Response.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## experimental_push_test
+
+> <ExperimentalPushTest200Response> experimental_push_test(opts)
+
+Send test push event
+
+Send a test push event through the experimental APN relay integration.
+
+### Examples
+
+```ruby
+require 'time'
+require 'opencode_client'
+
+api_instance = OpencodeClient::DefaultApi.new
+opts = {
+  directory: 'directory_example', # String | 
+  workspace: 'workspace_example', # String | 
+  experimental_push_test_request: OpencodeClient::ExperimentalPushTestRequest.new({secret: 'secret_example'}) # ExperimentalPushTestRequest | 
+}
+
+begin
+  # Send test push event
+  result = api_instance.experimental_push_test(opts)
+  p result
+rescue OpencodeClient::ApiError => e
+  puts "Error when calling DefaultApi->experimental_push_test: #{e}"
+end
+```
+
+#### Using the experimental_push_test_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ExperimentalPushTest200Response>, Integer, Hash)> experimental_push_test_with_http_info(opts)
+
+```ruby
+begin
+  # Send test push event
+  data, status_code, headers = api_instance.experimental_push_test_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ExperimentalPushTest200Response>
+rescue OpencodeClient::ApiError => e
+  puts "Error when calling DefaultApi->experimental_push_test_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **directory** | **String** |  | [optional] |
+| **workspace** | **String** |  | [optional] |
+| **experimental_push_test_request** | [**ExperimentalPushTestRequest**](ExperimentalPushTestRequest.md) |  | [optional] |
+
+### Return type
+
+[**ExperimentalPushTest200Response**](ExperimentalPushTest200Response.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## experimental_resource_list
+
+> <Hash<String, McpResource>> experimental_resource_list(opts)
+
+Get MCP resources
+
+Get all available MCP resources from connected servers. Optionally filter by name.
+
+### Examples
+
+```ruby
+require 'time'
+require 'opencode_client'
+
+api_instance = OpencodeClient::DefaultApi.new
+opts = {
+  directory: 'directory_example', # String | 
+  workspace: 'workspace_example' # String | 
+}
+
+begin
+  # Get MCP resources
+  result = api_instance.experimental_resource_list(opts)
+  p result
+rescue OpencodeClient::ApiError => e
+  puts "Error when calling DefaultApi->experimental_resource_list: #{e}"
+end
+```
+
+#### Using the experimental_resource_list_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<Hash<String, McpResource>>, Integer, Hash)> experimental_resource_list_with_http_info(opts)
+
+```ruby
+begin
+  # Get MCP resources
+  data, status_code, headers = api_instance.experimental_resource_list_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <Hash<String, McpResource>>
+rescue OpencodeClient::ApiError => e
+  puts "Error when calling DefaultApi->experimental_resource_list_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **directory** | **String** |  | [optional] |
+| **workspace** | **String** |  | [optional] |
+
+### Return type
+
+[**Hash&lt;String, McpResource&gt;**](McpResource.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## experimental_session_list
+
+> <Array<GlobalSession>> experimental_session_list(opts)
+
+List sessions
+
+Get a list of all OpenCode sessions across projects, sorted by most recently updated. Archived sessions are excluded by default.
+
+### Examples
+
+```ruby
+require 'time'
+require 'opencode_client'
+
+api_instance = OpencodeClient::DefaultApi.new
+opts = {
+  directory: 'directory_example', # String | Filter sessions by project directory
+  workspace: 'workspace_example', # String | 
+  roots: true, # Boolean | Only return root sessions (no parentID)
+  start: 8.14, # Float | Filter sessions updated on or after this timestamp (milliseconds since epoch)
+  cursor: 8.14, # Float | Return sessions updated before this timestamp (milliseconds since epoch)
+  search: 'search_example', # String | Filter sessions by title (case-insensitive)
+  limit: 8.14, # Float | Maximum number of sessions to return
+  archived: true # Boolean | Include archived sessions (default false)
+}
+
+begin
+  # List sessions
+  result = api_instance.experimental_session_list(opts)
+  p result
+rescue OpencodeClient::ApiError => e
+  puts "Error when calling DefaultApi->experimental_session_list: #{e}"
+end
+```
+
+#### Using the experimental_session_list_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<Array<GlobalSession>>, Integer, Hash)> experimental_session_list_with_http_info(opts)
+
+```ruby
+begin
+  # List sessions
+  data, status_code, headers = api_instance.experimental_session_list_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <Array<GlobalSession>>
+rescue OpencodeClient::ApiError => e
+  puts "Error when calling DefaultApi->experimental_session_list_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **directory** | **String** | Filter sessions by project directory | [optional] |
+| **workspace** | **String** |  | [optional] |
+| **roots** | **Boolean** | Only return root sessions (no parentID) | [optional] |
+| **start** | **Float** | Filter sessions updated on or after this timestamp (milliseconds since epoch) | [optional] |
+| **cursor** | **Float** | Return sessions updated before this timestamp (milliseconds since epoch) | [optional] |
+| **search** | **String** | Filter sessions by title (case-insensitive) | [optional] |
+| **limit** | **Float** | Maximum number of sessions to return | [optional] |
+| **archived** | **Boolean** | Include archived sessions (default false) | [optional] |
+
+### Return type
+
+[**Array&lt;GlobalSession&gt;**](GlobalSession.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## experimental_workspace_create
+
+> <Workspace> experimental_workspace_create(opts)
+
+Create workspace
+
+Create a workspace for the current project.
+
+### Examples
+
+```ruby
+require 'time'
+require 'opencode_client'
+
+api_instance = OpencodeClient::DefaultApi.new
+opts = {
+  directory: 'directory_example', # String | 
+  workspace: 'workspace_example', # String | 
+  experimental_workspace_create_request: OpencodeClient::ExperimentalWorkspaceCreateRequest.new({type: 'type_example', branch: 'branch_example', extra: TODO}) # ExperimentalWorkspaceCreateRequest | 
+}
+
+begin
+  # Create workspace
+  result = api_instance.experimental_workspace_create(opts)
+  p result
+rescue OpencodeClient::ApiError => e
+  puts "Error when calling DefaultApi->experimental_workspace_create: #{e}"
+end
+```
+
+#### Using the experimental_workspace_create_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<Workspace>, Integer, Hash)> experimental_workspace_create_with_http_info(opts)
+
+```ruby
+begin
+  # Create workspace
+  data, status_code, headers = api_instance.experimental_workspace_create_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <Workspace>
+rescue OpencodeClient::ApiError => e
+  puts "Error when calling DefaultApi->experimental_workspace_create_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **directory** | **String** |  | [optional] |
+| **workspace** | **String** |  | [optional] |
+| **experimental_workspace_create_request** | [**ExperimentalWorkspaceCreateRequest**](ExperimentalWorkspaceCreateRequest.md) |  | [optional] |
+
+### Return type
+
+[**Workspace**](Workspace.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## experimental_workspace_list
+
+> <Array<Workspace>> experimental_workspace_list(opts)
+
+List workspaces
+
+List all workspaces.
+
+### Examples
+
+```ruby
+require 'time'
+require 'opencode_client'
+
+api_instance = OpencodeClient::DefaultApi.new
+opts = {
+  directory: 'directory_example', # String | 
+  workspace: 'workspace_example' # String | 
+}
+
+begin
+  # List workspaces
+  result = api_instance.experimental_workspace_list(opts)
+  p result
+rescue OpencodeClient::ApiError => e
+  puts "Error when calling DefaultApi->experimental_workspace_list: #{e}"
+end
+```
+
+#### Using the experimental_workspace_list_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<Array<Workspace>>, Integer, Hash)> experimental_workspace_list_with_http_info(opts)
+
+```ruby
+begin
+  # List workspaces
+  data, status_code, headers = api_instance.experimental_workspace_list_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <Array<Workspace>>
+rescue OpencodeClient::ApiError => e
+  puts "Error when calling DefaultApi->experimental_workspace_list_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **directory** | **String** |  | [optional] |
+| **workspace** | **String** |  | [optional] |
+
+### Return type
+
+[**Array&lt;Workspace&gt;**](Workspace.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## experimental_workspace_remove
+
+> <Workspace> experimental_workspace_remove(id, opts)
+
+Remove workspace
+
+Remove an existing workspace.
+
+### Examples
+
+```ruby
+require 'time'
+require 'opencode_client'
+
+api_instance = OpencodeClient::DefaultApi.new
+id = 'id_example' # String | 
+opts = {
+  directory: 'directory_example', # String | 
+  workspace: 'workspace_example' # String | 
+}
+
+begin
+  # Remove workspace
+  result = api_instance.experimental_workspace_remove(id, opts)
+  p result
+rescue OpencodeClient::ApiError => e
+  puts "Error when calling DefaultApi->experimental_workspace_remove: #{e}"
+end
+```
+
+#### Using the experimental_workspace_remove_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<Workspace>, Integer, Hash)> experimental_workspace_remove_with_http_info(id, opts)
+
+```ruby
+begin
+  # Remove workspace
+  data, status_code, headers = api_instance.experimental_workspace_remove_with_http_info(id, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <Workspace>
+rescue OpencodeClient::ApiError => e
+  puts "Error when calling DefaultApi->experimental_workspace_remove_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **id** | **String** |  |  |
+| **directory** | **String** |  | [optional] |
+| **workspace** | **String** |  | [optional] |
+
+### Return type
+
+[**Workspace**](Workspace.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
 ## file_list
@@ -641,7 +1582,8 @@ require 'opencode_client'
 api_instance = OpencodeClient::DefaultApi.new
 path = 'path_example' # String | 
 opts = {
-  directory: 'directory_example' # String | 
+  directory: 'directory_example', # String | 
+  workspace: 'workspace_example' # String | 
 }
 
 begin
@@ -677,6 +1619,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | **path** | **String** |  |  |
 | **directory** | **String** |  | [optional] |
+| **workspace** | **String** |  | [optional] |
 
 ### Return type
 
@@ -709,7 +1652,8 @@ require 'opencode_client'
 api_instance = OpencodeClient::DefaultApi.new
 path = 'path_example' # String | 
 opts = {
-  directory: 'directory_example' # String | 
+  directory: 'directory_example', # String | 
+  workspace: 'workspace_example' # String | 
 }
 
 begin
@@ -745,6 +1689,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | **path** | **String** |  |  |
 | **directory** | **String** |  | [optional] |
+| **workspace** | **String** |  | [optional] |
 
 ### Return type
 
@@ -776,7 +1721,8 @@ require 'opencode_client'
 
 api_instance = OpencodeClient::DefaultApi.new
 opts = {
-  directory: 'directory_example' # String | 
+  directory: 'directory_example', # String | 
+  workspace: 'workspace_example' # String | 
 }
 
 begin
@@ -811,6 +1757,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **directory** | **String** |  | [optional] |
+| **workspace** | **String** |  | [optional] |
 
 ### Return type
 
@@ -832,7 +1779,7 @@ No authorization required
 
 Find files
 
-Search for files by name or pattern in the project directory.
+Search for files or directories by name or pattern in the project directory.
 
 ### Examples
 
@@ -844,7 +1791,10 @@ api_instance = OpencodeClient::DefaultApi.new
 query = 'query_example' # String | 
 opts = {
   directory: 'directory_example', # String | 
-  dirs: 'true' # String | 
+  workspace: 'workspace_example', # String | 
+  dirs: 'true', # String | 
+  type: 'file', # String | 
+  limit: 56 # Integer | 
 }
 
 begin
@@ -880,7 +1830,10 @@ end
 | ---- | ---- | ----------- | ----- |
 | **query** | **String** |  |  |
 | **directory** | **String** |  | [optional] |
+| **workspace** | **String** |  | [optional] |
 | **dirs** | **String** |  | [optional] |
+| **type** | **String** |  | [optional] |
+| **limit** | **Integer** |  | [optional] |
 
 ### Return type
 
@@ -913,7 +1866,8 @@ require 'opencode_client'
 api_instance = OpencodeClient::DefaultApi.new
 query = 'query_example' # String | 
 opts = {
-  directory: 'directory_example' # String | 
+  directory: 'directory_example', # String | 
+  workspace: 'workspace_example' # String | 
 }
 
 begin
@@ -949,6 +1903,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | **query** | **String** |  |  |
 | **directory** | **String** |  | [optional] |
+| **workspace** | **String** |  | [optional] |
 
 ### Return type
 
@@ -981,7 +1936,8 @@ require 'opencode_client'
 api_instance = OpencodeClient::DefaultApi.new
 pattern = 'pattern_example' # String | 
 opts = {
-  directory: 'directory_example' # String | 
+  directory: 'directory_example', # String | 
+  workspace: 'workspace_example' # String | 
 }
 
 begin
@@ -1017,6 +1973,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | **pattern** | **String** |  |  |
 | **directory** | **String** |  | [optional] |
+| **workspace** | **String** |  | [optional] |
 
 ### Return type
 
@@ -1048,7 +2005,8 @@ require 'opencode_client'
 
 api_instance = OpencodeClient::DefaultApi.new
 opts = {
-  directory: 'directory_example' # String | 
+  directory: 'directory_example', # String | 
+  workspace: 'workspace_example' # String | 
 }
 
 begin
@@ -1083,6 +2041,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **directory** | **String** |  | [optional] |
+| **workspace** | **String** |  | [optional] |
 
 ### Return type
 
@@ -1095,6 +2054,133 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## global_config_get
+
+> <Config> global_config_get
+
+Get global configuration
+
+Retrieve the current global OpenCode configuration settings and preferences.
+
+### Examples
+
+```ruby
+require 'time'
+require 'opencode_client'
+
+api_instance = OpencodeClient::DefaultApi.new
+
+begin
+  # Get global configuration
+  result = api_instance.global_config_get
+  p result
+rescue OpencodeClient::ApiError => e
+  puts "Error when calling DefaultApi->global_config_get: #{e}"
+end
+```
+
+#### Using the global_config_get_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<Config>, Integer, Hash)> global_config_get_with_http_info
+
+```ruby
+begin
+  # Get global configuration
+  data, status_code, headers = api_instance.global_config_get_with_http_info
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <Config>
+rescue OpencodeClient::ApiError => e
+  puts "Error when calling DefaultApi->global_config_get_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**Config**](Config.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## global_config_update
+
+> <Config> global_config_update(opts)
+
+Update global configuration
+
+Update global OpenCode configuration settings and preferences.
+
+### Examples
+
+```ruby
+require 'time'
+require 'opencode_client'
+
+api_instance = OpencodeClient::DefaultApi.new
+opts = {
+  config: OpencodeClient::Config.new # Config | 
+}
+
+begin
+  # Update global configuration
+  result = api_instance.global_config_update(opts)
+  p result
+rescue OpencodeClient::ApiError => e
+  puts "Error when calling DefaultApi->global_config_update: #{e}"
+end
+```
+
+#### Using the global_config_update_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<Config>, Integer, Hash)> global_config_update_with_http_info(opts)
+
+```ruby
+begin
+  # Update global configuration
+  data, status_code, headers = api_instance.global_config_update_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <Config>
+rescue OpencodeClient::ApiError => e
+  puts "Error when calling DefaultApi->global_config_update_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **config** | [**Config**](Config.md) |  | [optional] |
+
+### Return type
+
+[**Config**](Config.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 
@@ -1281,6 +2367,133 @@ No authorization required
 - **Accept**: application/json
 
 
+## global_sync_event_subscribe
+
+> <SyncEvent> global_sync_event_subscribe
+
+Subscribe to global sync events
+
+Get global sync events
+
+### Examples
+
+```ruby
+require 'time'
+require 'opencode_client'
+
+api_instance = OpencodeClient::DefaultApi.new
+
+begin
+  # Subscribe to global sync events
+  result = api_instance.global_sync_event_subscribe
+  p result
+rescue OpencodeClient::ApiError => e
+  puts "Error when calling DefaultApi->global_sync_event_subscribe: #{e}"
+end
+```
+
+#### Using the global_sync_event_subscribe_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<SyncEvent>, Integer, Hash)> global_sync_event_subscribe_with_http_info
+
+```ruby
+begin
+  # Subscribe to global sync events
+  data, status_code, headers = api_instance.global_sync_event_subscribe_with_http_info
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <SyncEvent>
+rescue OpencodeClient::ApiError => e
+  puts "Error when calling DefaultApi->global_sync_event_subscribe_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**SyncEvent**](SyncEvent.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: text/event-stream
+
+
+## global_upgrade
+
+> <GlobalUpgrade200Response> global_upgrade(opts)
+
+Upgrade opencode
+
+Upgrade opencode to the specified version or latest if not specified.
+
+### Examples
+
+```ruby
+require 'time'
+require 'opencode_client'
+
+api_instance = OpencodeClient::DefaultApi.new
+opts = {
+  global_upgrade_request: OpencodeClient::GlobalUpgradeRequest.new # GlobalUpgradeRequest | 
+}
+
+begin
+  # Upgrade opencode
+  result = api_instance.global_upgrade(opts)
+  p result
+rescue OpencodeClient::ApiError => e
+  puts "Error when calling DefaultApi->global_upgrade: #{e}"
+end
+```
+
+#### Using the global_upgrade_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<GlobalUpgrade200Response>, Integer, Hash)> global_upgrade_with_http_info(opts)
+
+```ruby
+begin
+  # Upgrade opencode
+  data, status_code, headers = api_instance.global_upgrade_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <GlobalUpgrade200Response>
+rescue OpencodeClient::ApiError => e
+  puts "Error when calling DefaultApi->global_upgrade_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **global_upgrade_request** | [**GlobalUpgradeRequest**](GlobalUpgradeRequest.md) |  | [optional] |
+
+### Return type
+
+[**GlobalUpgrade200Response**](GlobalUpgrade200Response.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
 ## instance_dispose
 
 > Boolean instance_dispose(opts)
@@ -1297,7 +2510,8 @@ require 'opencode_client'
 
 api_instance = OpencodeClient::DefaultApi.new
 opts = {
-  directory: 'directory_example' # String | 
+  directory: 'directory_example', # String | 
+  workspace: 'workspace_example' # String | 
 }
 
 begin
@@ -1332,6 +2546,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **directory** | **String** |  | [optional] |
+| **workspace** | **String** |  | [optional] |
 
 ### Return type
 
@@ -1363,7 +2578,8 @@ require 'opencode_client'
 
 api_instance = OpencodeClient::DefaultApi.new
 opts = {
-  directory: 'directory_example' # String | 
+  directory: 'directory_example', # String | 
+  workspace: 'workspace_example' # String | 
 }
 
 begin
@@ -1398,6 +2614,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **directory** | **String** |  | [optional] |
+| **workspace** | **String** |  | [optional] |
 
 ### Return type
 
@@ -1430,6 +2647,7 @@ require 'opencode_client'
 api_instance = OpencodeClient::DefaultApi.new
 opts = {
   directory: 'directory_example', # String | 
+  workspace: 'workspace_example', # String | 
   mcp_add_request: OpencodeClient::McpAddRequest.new({name: 'name_example', config: OpencodeClient::McpAddRequestConfig.new({type: 'local', command: ['command_example'], url: 'url_example'})}) # McpAddRequest | 
 }
 
@@ -1465,6 +2683,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **directory** | **String** |  | [optional] |
+| **workspace** | **String** |  | [optional] |
 | **mcp_add_request** | [**McpAddRequest**](McpAddRequest.md) |  | [optional] |
 
 ### Return type
@@ -1498,7 +2717,8 @@ require 'opencode_client'
 api_instance = OpencodeClient::DefaultApi.new
 name = 'name_example' # String | 
 opts = {
-  directory: 'directory_example' # String | 
+  directory: 'directory_example', # String | 
+  workspace: 'workspace_example' # String | 
 }
 
 begin
@@ -1534,6 +2754,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | **name** | **String** |  |  |
 | **directory** | **String** |  | [optional] |
+| **workspace** | **String** |  | [optional] |
 
 ### Return type
 
@@ -1567,6 +2788,7 @@ api_instance = OpencodeClient::DefaultApi.new
 name = 'name_example' # String | 
 opts = {
   directory: 'directory_example', # String | 
+  workspace: 'workspace_example', # String | 
   mcp_auth_callback_request: OpencodeClient::McpAuthCallbackRequest.new({code: 'code_example'}) # McpAuthCallbackRequest | 
 }
 
@@ -1603,6 +2825,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | **name** | **String** |  |  |
 | **directory** | **String** |  | [optional] |
+| **workspace** | **String** |  | [optional] |
 | **mcp_auth_callback_request** | [**McpAuthCallbackRequest**](McpAuthCallbackRequest.md) |  | [optional] |
 
 ### Return type
@@ -1636,7 +2859,8 @@ require 'opencode_client'
 api_instance = OpencodeClient::DefaultApi.new
 name = 'name_example' # String | 
 opts = {
-  directory: 'directory_example' # String | 
+  directory: 'directory_example', # String | 
+  workspace: 'workspace_example' # String | 
 }
 
 begin
@@ -1672,6 +2896,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | **name** | **String** |  |  |
 | **directory** | **String** |  | [optional] |
+| **workspace** | **String** |  | [optional] |
 
 ### Return type
 
@@ -1704,7 +2929,8 @@ require 'opencode_client'
 api_instance = OpencodeClient::DefaultApi.new
 name = 'name_example' # String | 
 opts = {
-  directory: 'directory_example' # String | 
+  directory: 'directory_example', # String | 
+  workspace: 'workspace_example' # String | 
 }
 
 begin
@@ -1740,6 +2966,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | **name** | **String** |  |  |
 | **directory** | **String** |  | [optional] |
+| **workspace** | **String** |  | [optional] |
 
 ### Return type
 
@@ -1772,7 +2999,8 @@ require 'opencode_client'
 api_instance = OpencodeClient::DefaultApi.new
 name = 'name_example' # String | 
 opts = {
-  directory: 'directory_example' # String | 
+  directory: 'directory_example', # String | 
+  workspace: 'workspace_example' # String | 
 }
 
 begin
@@ -1808,6 +3036,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | **name** | **String** |  |  |
 | **directory** | **String** |  | [optional] |
+| **workspace** | **String** |  | [optional] |
 
 ### Return type
 
@@ -1840,7 +3069,8 @@ require 'opencode_client'
 api_instance = OpencodeClient::DefaultApi.new
 name = 'name_example' # String | 
 opts = {
-  directory: 'directory_example' # String | 
+  directory: 'directory_example', # String | 
+  workspace: 'workspace_example' # String | 
 }
 
 begin
@@ -1876,6 +3106,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | **name** | **String** |  |  |
 | **directory** | **String** |  | [optional] |
+| **workspace** | **String** |  | [optional] |
 
 ### Return type
 
@@ -1907,7 +3138,8 @@ require 'opencode_client'
 
 api_instance = OpencodeClient::DefaultApi.new
 opts = {
-  directory: 'directory_example' # String | 
+  directory: 'directory_example', # String | 
+  workspace: 'workspace_example' # String | 
 }
 
 begin
@@ -1942,6 +3174,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **directory** | **String** |  | [optional] |
+| **workspace** | **String** |  | [optional] |
 
 ### Return type
 
@@ -1972,11 +3205,12 @@ require 'time'
 require 'opencode_client'
 
 api_instance = OpencodeClient::DefaultApi.new
-session_id = 'session_id_example' # String | Session ID
-message_id = 'message_id_example' # String | Message ID
-part_id = 'part_id_example' # String | Part ID
+session_id = 'session_id_example' # String | 
+message_id = 'message_id_example' # String | 
+part_id = 'part_id_example' # String | 
 opts = {
-  directory: 'directory_example' # String | 
+  directory: 'directory_example', # String | 
+  workspace: 'workspace_example' # String | 
 }
 
 begin
@@ -2010,10 +3244,11 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **session_id** | **String** | Session ID |  |
-| **message_id** | **String** | Message ID |  |
-| **part_id** | **String** | Part ID |  |
+| **session_id** | **String** |  |  |
+| **message_id** | **String** |  |  |
+| **part_id** | **String** |  |  |
 | **directory** | **String** |  | [optional] |
+| **workspace** | **String** |  | [optional] |
 
 ### Return type
 
@@ -2044,11 +3279,12 @@ require 'time'
 require 'opencode_client'
 
 api_instance = OpencodeClient::DefaultApi.new
-session_id = 'session_id_example' # String | Session ID
-message_id = 'message_id_example' # String | Message ID
-part_id = 'part_id_example' # String | Part ID
+session_id = 'session_id_example' # String | 
+message_id = 'message_id_example' # String | 
+part_id = 'part_id_example' # String | 
 opts = {
   directory: 'directory_example', # String | 
+  workspace: 'workspace_example', # String | 
   part: OpencodeClient::Part.new({id: 'id_example', session_id: 'session_id_example', message_id: 'message_id_example', type: 'text', text: 'text_example', time: OpencodeClient::UserMessageTime.new({created: 3.56}), prompt: 'prompt_example', description: 'description_example', agent: 'agent_example', mime: 'mime_example', url: 'url_example', call_id: 'call_id_example', tool: 'tool_example', state: OpencodeClient::ToolState.new({status: 'error', input: { key: 3.56}, raw: 'raw_example', title: 'title_example', metadata: { key: 3.56}, time: OpencodeClient::ToolStateErrorTime.new({start: 3.56, _end: 3.56}), output: 'output_example', error: 'error_example'}), snapshot: 'snapshot_example', reason: 'reason_example', cost: 3.56, tokens: OpencodeClient::AssistantMessageTokens.new({input: 3.56, output: 3.56, reasoning: 3.56, cache: OpencodeClient::AssistantMessageTokensCache.new({read: 3.56, write: 3.56})}), hash: 'hash_example', files: ['files_example'], name: 'name_example', attempt: 3.56, error: OpencodeClient::APIError.new({name: 'APIError', data: OpencodeClient::APIErrorData.new({message: 'message_example', is_retryable: false})}), auto: false}) # Part | 
 }
 
@@ -2083,10 +3319,11 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **session_id** | **String** | Session ID |  |
-| **message_id** | **String** | Message ID |  |
-| **part_id** | **String** | Part ID |  |
+| **session_id** | **String** |  |  |
+| **message_id** | **String** |  |  |
+| **part_id** | **String** |  |  |
 | **directory** | **String** |  | [optional] |
+| **workspace** | **String** |  | [optional] |
 | **part** | [**Part**](Part.md) |  | [optional] |
 
 ### Return type
@@ -2119,7 +3356,8 @@ require 'opencode_client'
 
 api_instance = OpencodeClient::DefaultApi.new
 opts = {
-  directory: 'directory_example' # String | 
+  directory: 'directory_example', # String | 
+  workspace: 'workspace_example' # String | 
 }
 
 begin
@@ -2154,6 +3392,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **directory** | **String** |  | [optional] |
+| **workspace** | **String** |  | [optional] |
 
 ### Return type
 
@@ -2171,7 +3410,7 @@ No authorization required
 
 ## permission_list
 
-> <Array<Permission>> permission_list(opts)
+> <Array<PermissionRequest>> permission_list(opts)
 
 List pending permissions
 
@@ -2185,7 +3424,8 @@ require 'opencode_client'
 
 api_instance = OpencodeClient::DefaultApi.new
 opts = {
-  directory: 'directory_example' # String | 
+  directory: 'directory_example', # String | 
+  workspace: 'workspace_example' # String | 
 }
 
 begin
@@ -2201,7 +3441,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<Permission>>, Integer, Hash)> permission_list_with_http_info(opts)
+> <Array(<Array<PermissionRequest>>, Integer, Hash)> permission_list_with_http_info(opts)
 
 ```ruby
 begin
@@ -2209,7 +3449,7 @@ begin
   data, status_code, headers = api_instance.permission_list_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <Array<Permission>>
+  p data # => <Array<PermissionRequest>>
 rescue OpencodeClient::ApiError => e
   puts "Error when calling DefaultApi->permission_list_with_http_info: #{e}"
 end
@@ -2220,10 +3460,11 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **directory** | **String** |  | [optional] |
+| **workspace** | **String** |  | [optional] |
 
 ### Return type
 
-[**Array&lt;Permission&gt;**](Permission.md)
+[**Array&lt;PermissionRequest&gt;**](PermissionRequest.md)
 
 ### Authorization
 
@@ -2232,6 +3473,78 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## permission_reply
+
+> Boolean permission_reply(request_id, opts)
+
+Respond to permission request
+
+Approve or deny a permission request from the AI assistant.
+
+### Examples
+
+```ruby
+require 'time'
+require 'opencode_client'
+
+api_instance = OpencodeClient::DefaultApi.new
+request_id = 'request_id_example' # String | 
+opts = {
+  directory: 'directory_example', # String | 
+  workspace: 'workspace_example', # String | 
+  permission_reply_request: OpencodeClient::PermissionReplyRequest.new({reply: 'once'}) # PermissionReplyRequest | 
+}
+
+begin
+  # Respond to permission request
+  result = api_instance.permission_reply(request_id, opts)
+  p result
+rescue OpencodeClient::ApiError => e
+  puts "Error when calling DefaultApi->permission_reply: #{e}"
+end
+```
+
+#### Using the permission_reply_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(Boolean, Integer, Hash)> permission_reply_with_http_info(request_id, opts)
+
+```ruby
+begin
+  # Respond to permission request
+  data, status_code, headers = api_instance.permission_reply_with_http_info(request_id, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => Boolean
+rescue OpencodeClient::ApiError => e
+  puts "Error when calling DefaultApi->permission_reply_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **request_id** | **String** |  |  |
+| **directory** | **String** |  | [optional] |
+| **workspace** | **String** |  | [optional] |
+| **permission_reply_request** | [**PermissionReplyRequest**](PermissionReplyRequest.md) |  | [optional] |
+
+### Return type
+
+**Boolean**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 
@@ -2254,6 +3567,7 @@ session_id = 'session_id_example' # String |
 permission_id = 'permission_id_example' # String | 
 opts = {
   directory: 'directory_example', # String | 
+  workspace: 'workspace_example', # String | 
   permission_respond_request: OpencodeClient::PermissionRespondRequest.new({response: 'once'}) # PermissionRespondRequest | 
 }
 
@@ -2291,6 +3605,7 @@ end
 | **session_id** | **String** |  |  |
 | **permission_id** | **String** |  |  |
 | **directory** | **String** |  | [optional] |
+| **workspace** | **String** |  | [optional] |
 | **permission_respond_request** | [**PermissionRespondRequest**](PermissionRespondRequest.md) |  | [optional] |
 
 ### Return type
@@ -2323,7 +3638,8 @@ require 'opencode_client'
 
 api_instance = OpencodeClient::DefaultApi.new
 opts = {
-  directory: 'directory_example' # String | 
+  directory: 'directory_example', # String | 
+  workspace: 'workspace_example' # String | 
 }
 
 begin
@@ -2358,6 +3674,75 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **directory** | **String** |  | [optional] |
+| **workspace** | **String** |  | [optional] |
+
+### Return type
+
+[**Project**](Project.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## project_init_git
+
+> <Project> project_init_git(opts)
+
+Initialize git repository
+
+Create a git repository for the current project and return the refreshed project info.
+
+### Examples
+
+```ruby
+require 'time'
+require 'opencode_client'
+
+api_instance = OpencodeClient::DefaultApi.new
+opts = {
+  directory: 'directory_example', # String | 
+  workspace: 'workspace_example' # String | 
+}
+
+begin
+  # Initialize git repository
+  result = api_instance.project_init_git(opts)
+  p result
+rescue OpencodeClient::ApiError => e
+  puts "Error when calling DefaultApi->project_init_git: #{e}"
+end
+```
+
+#### Using the project_init_git_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<Project>, Integer, Hash)> project_init_git_with_http_info(opts)
+
+```ruby
+begin
+  # Initialize git repository
+  data, status_code, headers = api_instance.project_init_git_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <Project>
+rescue OpencodeClient::ApiError => e
+  puts "Error when calling DefaultApi->project_init_git_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **directory** | **String** |  | [optional] |
+| **workspace** | **String** |  | [optional] |
 
 ### Return type
 
@@ -2389,7 +3774,8 @@ require 'opencode_client'
 
 api_instance = OpencodeClient::DefaultApi.new
 opts = {
-  directory: 'directory_example' # String | 
+  directory: 'directory_example', # String | 
+  workspace: 'workspace_example' # String | 
 }
 
 begin
@@ -2424,6 +3810,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **directory** | **String** |  | [optional] |
+| **workspace** | **String** |  | [optional] |
 
 ### Return type
 
@@ -2445,7 +3832,7 @@ No authorization required
 
 Update project
 
-Update project properties such as name, icon and color.
+Update project properties such as name, icon, and commands.
 
 ### Examples
 
@@ -2457,6 +3844,7 @@ api_instance = OpencodeClient::DefaultApi.new
 project_id = 'project_id_example' # String | 
 opts = {
   directory: 'directory_example', # String | 
+  workspace: 'workspace_example', # String | 
   project_update_request: OpencodeClient::ProjectUpdateRequest.new # ProjectUpdateRequest | 
 }
 
@@ -2493,6 +3881,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | **project_id** | **String** |  |  |
 | **directory** | **String** |  | [optional] |
+| **workspace** | **String** |  | [optional] |
 | **project_update_request** | [**ProjectUpdateRequest**](ProjectUpdateRequest.md) |  | [optional] |
 
 ### Return type
@@ -2525,7 +3914,8 @@ require 'opencode_client'
 
 api_instance = OpencodeClient::DefaultApi.new
 opts = {
-  directory: 'directory_example' # String | 
+  directory: 'directory_example', # String | 
+  workspace: 'workspace_example' # String | 
 }
 
 begin
@@ -2560,6 +3950,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **directory** | **String** |  | [optional] |
+| **workspace** | **String** |  | [optional] |
 
 ### Return type
 
@@ -2591,7 +3982,8 @@ require 'opencode_client'
 
 api_instance = OpencodeClient::DefaultApi.new
 opts = {
-  directory: 'directory_example' # String | 
+  directory: 'directory_example', # String | 
+  workspace: 'workspace_example' # String | 
 }
 
 begin
@@ -2626,6 +4018,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **directory** | **String** |  | [optional] |
+| **workspace** | **String** |  | [optional] |
 
 ### Return type
 
@@ -2659,6 +4052,7 @@ api_instance = OpencodeClient::DefaultApi.new
 provider_id = 'provider_id_example' # String | Provider ID
 opts = {
   directory: 'directory_example', # String | 
+  workspace: 'workspace_example', # String | 
   provider_oauth_authorize_request: OpencodeClient::ProviderOauthAuthorizeRequest.new({method: 3.56}) # ProviderOauthAuthorizeRequest | 
 }
 
@@ -2695,6 +4089,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | **provider_id** | **String** | Provider ID |  |
 | **directory** | **String** |  | [optional] |
+| **workspace** | **String** |  | [optional] |
 | **provider_oauth_authorize_request** | [**ProviderOauthAuthorizeRequest**](ProviderOauthAuthorizeRequest.md) |  | [optional] |
 
 ### Return type
@@ -2729,6 +4124,7 @@ api_instance = OpencodeClient::DefaultApi.new
 provider_id = 'provider_id_example' # String | Provider ID
 opts = {
   directory: 'directory_example', # String | 
+  workspace: 'workspace_example', # String | 
   provider_oauth_callback_request: OpencodeClient::ProviderOauthCallbackRequest.new({method: 3.56}) # ProviderOauthCallbackRequest | 
 }
 
@@ -2765,6 +4161,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | **provider_id** | **String** | Provider ID |  |
 | **directory** | **String** |  | [optional] |
+| **workspace** | **String** |  | [optional] |
 | **provider_oauth_callback_request** | [**ProviderOauthCallbackRequest**](ProviderOauthCallbackRequest.md) |  | [optional] |
 
 ### Return type
@@ -2798,7 +4195,8 @@ require 'opencode_client'
 api_instance = OpencodeClient::DefaultApi.new
 pty_id = 'pty_id_example' # String | 
 opts = {
-  directory: 'directory_example' # String | 
+  directory: 'directory_example', # String | 
+  workspace: 'workspace_example' # String | 
 }
 
 begin
@@ -2834,6 +4232,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | **pty_id** | **String** |  |  |
 | **directory** | **String** |  | [optional] |
+| **workspace** | **String** |  | [optional] |
 
 ### Return type
 
@@ -2866,6 +4265,7 @@ require 'opencode_client'
 api_instance = OpencodeClient::DefaultApi.new
 opts = {
   directory: 'directory_example', # String | 
+  workspace: 'workspace_example', # String | 
   pty_create_request: OpencodeClient::PtyCreateRequest.new # PtyCreateRequest | 
 }
 
@@ -2901,6 +4301,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **directory** | **String** |  | [optional] |
+| **workspace** | **String** |  | [optional] |
 | **pty_create_request** | [**PtyCreateRequest**](PtyCreateRequest.md) |  | [optional] |
 
 ### Return type
@@ -2934,7 +4335,8 @@ require 'opencode_client'
 api_instance = OpencodeClient::DefaultApi.new
 pty_id = 'pty_id_example' # String | 
 opts = {
-  directory: 'directory_example' # String | 
+  directory: 'directory_example', # String | 
+  workspace: 'workspace_example' # String | 
 }
 
 begin
@@ -2970,6 +4372,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | **pty_id** | **String** |  |  |
 | **directory** | **String** |  | [optional] |
+| **workspace** | **String** |  | [optional] |
 
 ### Return type
 
@@ -3001,7 +4404,8 @@ require 'opencode_client'
 
 api_instance = OpencodeClient::DefaultApi.new
 opts = {
-  directory: 'directory_example' # String | 
+  directory: 'directory_example', # String | 
+  workspace: 'workspace_example' # String | 
 }
 
 begin
@@ -3036,6 +4440,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **directory** | **String** |  | [optional] |
+| **workspace** | **String** |  | [optional] |
 
 ### Return type
 
@@ -3068,7 +4473,8 @@ require 'opencode_client'
 api_instance = OpencodeClient::DefaultApi.new
 pty_id = 'pty_id_example' # String | 
 opts = {
-  directory: 'directory_example' # String | 
+  directory: 'directory_example', # String | 
+  workspace: 'workspace_example' # String | 
 }
 
 begin
@@ -3104,6 +4510,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | **pty_id** | **String** |  |  |
 | **directory** | **String** |  | [optional] |
+| **workspace** | **String** |  | [optional] |
 
 ### Return type
 
@@ -3137,6 +4544,7 @@ api_instance = OpencodeClient::DefaultApi.new
 pty_id = 'pty_id_example' # String | 
 opts = {
   directory: 'directory_example', # String | 
+  workspace: 'workspace_example', # String | 
   pty_update_request: OpencodeClient::PtyUpdateRequest.new # PtyUpdateRequest | 
 }
 
@@ -3173,11 +4581,222 @@ end
 | ---- | ---- | ----------- | ----- |
 | **pty_id** | **String** |  |  |
 | **directory** | **String** |  | [optional] |
+| **workspace** | **String** |  | [optional] |
 | **pty_update_request** | [**PtyUpdateRequest**](PtyUpdateRequest.md) |  | [optional] |
 
 ### Return type
 
 [**Pty**](Pty.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## question_list
+
+> <Array<QuestionRequest>> question_list(opts)
+
+List pending questions
+
+Get all pending question requests across all sessions.
+
+### Examples
+
+```ruby
+require 'time'
+require 'opencode_client'
+
+api_instance = OpencodeClient::DefaultApi.new
+opts = {
+  directory: 'directory_example', # String | 
+  workspace: 'workspace_example' # String | 
+}
+
+begin
+  # List pending questions
+  result = api_instance.question_list(opts)
+  p result
+rescue OpencodeClient::ApiError => e
+  puts "Error when calling DefaultApi->question_list: #{e}"
+end
+```
+
+#### Using the question_list_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<Array<QuestionRequest>>, Integer, Hash)> question_list_with_http_info(opts)
+
+```ruby
+begin
+  # List pending questions
+  data, status_code, headers = api_instance.question_list_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <Array<QuestionRequest>>
+rescue OpencodeClient::ApiError => e
+  puts "Error when calling DefaultApi->question_list_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **directory** | **String** |  | [optional] |
+| **workspace** | **String** |  | [optional] |
+
+### Return type
+
+[**Array&lt;QuestionRequest&gt;**](QuestionRequest.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## question_reject
+
+> Boolean question_reject(request_id, opts)
+
+Reject question request
+
+Reject a question request from the AI assistant.
+
+### Examples
+
+```ruby
+require 'time'
+require 'opencode_client'
+
+api_instance = OpencodeClient::DefaultApi.new
+request_id = 'request_id_example' # String | 
+opts = {
+  directory: 'directory_example', # String | 
+  workspace: 'workspace_example' # String | 
+}
+
+begin
+  # Reject question request
+  result = api_instance.question_reject(request_id, opts)
+  p result
+rescue OpencodeClient::ApiError => e
+  puts "Error when calling DefaultApi->question_reject: #{e}"
+end
+```
+
+#### Using the question_reject_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(Boolean, Integer, Hash)> question_reject_with_http_info(request_id, opts)
+
+```ruby
+begin
+  # Reject question request
+  data, status_code, headers = api_instance.question_reject_with_http_info(request_id, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => Boolean
+rescue OpencodeClient::ApiError => e
+  puts "Error when calling DefaultApi->question_reject_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **request_id** | **String** |  |  |
+| **directory** | **String** |  | [optional] |
+| **workspace** | **String** |  | [optional] |
+
+### Return type
+
+**Boolean**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## question_reply
+
+> Boolean question_reply(request_id, opts)
+
+Reply to question request
+
+Provide answers to a question request from the AI assistant.
+
+### Examples
+
+```ruby
+require 'time'
+require 'opencode_client'
+
+api_instance = OpencodeClient::DefaultApi.new
+request_id = 'request_id_example' # String | 
+opts = {
+  directory: 'directory_example', # String | 
+  workspace: 'workspace_example', # String | 
+  question_reply_request: OpencodeClient::QuestionReplyRequest.new({answers: [['answers_example']]}) # QuestionReplyRequest | 
+}
+
+begin
+  # Reply to question request
+  result = api_instance.question_reply(request_id, opts)
+  p result
+rescue OpencodeClient::ApiError => e
+  puts "Error when calling DefaultApi->question_reply: #{e}"
+end
+```
+
+#### Using the question_reply_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(Boolean, Integer, Hash)> question_reply_with_http_info(request_id, opts)
+
+```ruby
+begin
+  # Reply to question request
+  data, status_code, headers = api_instance.question_reply_with_http_info(request_id, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => Boolean
+rescue OpencodeClient::ApiError => e
+  puts "Error when calling DefaultApi->question_reply_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **request_id** | **String** |  |  |
+| **directory** | **String** |  | [optional] |
+| **workspace** | **String** |  | [optional] |
+| **question_reply_request** | [**QuestionReplyRequest**](QuestionReplyRequest.md) |  | [optional] |
+
+### Return type
+
+**Boolean**
 
 ### Authorization
 
@@ -3206,7 +4825,8 @@ require 'opencode_client'
 api_instance = OpencodeClient::DefaultApi.new
 session_id = 'session_id_example' # String | 
 opts = {
-  directory: 'directory_example' # String | 
+  directory: 'directory_example', # String | 
+  workspace: 'workspace_example' # String | 
 }
 
 begin
@@ -3242,6 +4862,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | **session_id** | **String** |  |  |
 | **directory** | **String** |  | [optional] |
+| **workspace** | **String** |  | [optional] |
 
 ### Return type
 
@@ -3272,9 +4893,10 @@ require 'time'
 require 'opencode_client'
 
 api_instance = OpencodeClient::DefaultApi.new
-session_id = 'session_id_example' # String | Session ID
+session_id = 'session_id_example' # String | 
 opts = {
   directory: 'directory_example', # String | 
+  workspace: 'workspace_example', # String | 
   session_command_request: OpencodeClient::SessionCommandRequest.new({arguments: 'arguments_example', command: 'command_example'}) # SessionCommandRequest | 
 }
 
@@ -3309,8 +4931,9 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **session_id** | **String** | Session ID |  |
+| **session_id** | **String** |  |  |
 | **directory** | **String** |  | [optional] |
+| **workspace** | **String** |  | [optional] |
 | **session_command_request** | [**SessionCommandRequest**](SessionCommandRequest.md) |  | [optional] |
 
 ### Return type
@@ -3344,6 +4967,7 @@ require 'opencode_client'
 api_instance = OpencodeClient::DefaultApi.new
 opts = {
   directory: 'directory_example', # String | 
+  workspace: 'workspace_example', # String | 
   session_create_request: OpencodeClient::SessionCreateRequest.new # SessionCreateRequest | 
 }
 
@@ -3379,6 +5003,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **directory** | **String** |  | [optional] |
+| **workspace** | **String** |  | [optional] |
 | **session_create_request** | [**SessionCreateRequest**](SessionCreateRequest.md) |  | [optional] |
 
 ### Return type
@@ -3412,7 +5037,8 @@ require 'opencode_client'
 api_instance = OpencodeClient::DefaultApi.new
 session_id = 'session_id_example' # String | 
 opts = {
-  directory: 'directory_example' # String | 
+  directory: 'directory_example', # String | 
+  workspace: 'workspace_example' # String | 
 }
 
 begin
@@ -3448,6 +5074,79 @@ end
 | ---- | ---- | ----------- | ----- |
 | **session_id** | **String** |  |  |
 | **directory** | **String** |  | [optional] |
+| **workspace** | **String** |  | [optional] |
+
+### Return type
+
+**Boolean**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## session_delete_message
+
+> Boolean session_delete_message(session_id, message_id, opts)
+
+Delete message
+
+Permanently delete a specific message (and all of its parts) from a session. This does not revert any file changes that may have been made while processing the message.
+
+### Examples
+
+```ruby
+require 'time'
+require 'opencode_client'
+
+api_instance = OpencodeClient::DefaultApi.new
+session_id = 'session_id_example' # String | 
+message_id = 'message_id_example' # String | 
+opts = {
+  directory: 'directory_example', # String | 
+  workspace: 'workspace_example' # String | 
+}
+
+begin
+  # Delete message
+  result = api_instance.session_delete_message(session_id, message_id, opts)
+  p result
+rescue OpencodeClient::ApiError => e
+  puts "Error when calling DefaultApi->session_delete_message: #{e}"
+end
+```
+
+#### Using the session_delete_message_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(Boolean, Integer, Hash)> session_delete_message_with_http_info(session_id, message_id, opts)
+
+```ruby
+begin
+  # Delete message
+  data, status_code, headers = api_instance.session_delete_message_with_http_info(session_id, message_id, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => Boolean
+rescue OpencodeClient::ApiError => e
+  puts "Error when calling DefaultApi->session_delete_message_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **session_id** | **String** |  |  |
+| **message_id** | **String** |  |  |
+| **directory** | **String** |  | [optional] |
+| **workspace** | **String** |  | [optional] |
 
 ### Return type
 
@@ -3465,11 +5164,11 @@ No authorization required
 
 ## session_diff
 
-> <Array<FileDiff>> session_diff(session_id, opts)
+> <Array<SnapshotFileDiff>> session_diff(session_id, opts)
 
-Get session diff
+Get message diff
 
-Get all file changes (diffs) made during this session.
+Get the file changes (diff) that resulted from a specific user message in the session.
 
 ### Examples
 
@@ -3478,14 +5177,15 @@ require 'time'
 require 'opencode_client'
 
 api_instance = OpencodeClient::DefaultApi.new
-session_id = 'session_id_example' # String | Session ID
+session_id = 'session_id_example' # String | 
 opts = {
   directory: 'directory_example', # String | 
+  workspace: 'workspace_example', # String | 
   message_id: 'message_id_example' # String | 
 }
 
 begin
-  # Get session diff
+  # Get message diff
   result = api_instance.session_diff(session_id, opts)
   p result
 rescue OpencodeClient::ApiError => e
@@ -3497,15 +5197,15 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<FileDiff>>, Integer, Hash)> session_diff_with_http_info(session_id, opts)
+> <Array(<Array<SnapshotFileDiff>>, Integer, Hash)> session_diff_with_http_info(session_id, opts)
 
 ```ruby
 begin
-  # Get session diff
+  # Get message diff
   data, status_code, headers = api_instance.session_diff_with_http_info(session_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <Array<FileDiff>>
+  p data # => <Array<SnapshotFileDiff>>
 rescue OpencodeClient::ApiError => e
   puts "Error when calling DefaultApi->session_diff_with_http_info: #{e}"
 end
@@ -3515,13 +5215,14 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **session_id** | **String** | Session ID |  |
+| **session_id** | **String** |  |  |
 | **directory** | **String** |  | [optional] |
+| **workspace** | **String** |  | [optional] |
 | **message_id** | **String** |  | [optional] |
 
 ### Return type
 
-[**Array&lt;FileDiff&gt;**](FileDiff.md)
+[**Array&lt;SnapshotFileDiff&gt;**](SnapshotFileDiff.md)
 
 ### Authorization
 
@@ -3551,6 +5252,7 @@ api_instance = OpencodeClient::DefaultApi.new
 session_id = 'session_id_example' # String | 
 opts = {
   directory: 'directory_example', # String | 
+  workspace: 'workspace_example', # String | 
   session_fork_request: OpencodeClient::SessionForkRequest.new # SessionForkRequest | 
 }
 
@@ -3587,6 +5289,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | **session_id** | **String** |  |  |
 | **directory** | **String** |  | [optional] |
+| **workspace** | **String** |  | [optional] |
 | **session_fork_request** | [**SessionForkRequest**](SessionForkRequest.md) |  | [optional] |
 
 ### Return type
@@ -3618,9 +5321,10 @@ require 'time'
 require 'opencode_client'
 
 api_instance = OpencodeClient::DefaultApi.new
-session_id = 'session_id_example' # String | Session ID
+session_id = 'session_id_example' # String | 
 opts = {
   directory: 'directory_example', # String | 
+  workspace: 'workspace_example', # String | 
   session_init_request: OpencodeClient::SessionInitRequest.new({model_id: 'model_id_example', provider_id: 'provider_id_example', message_id: 'message_id_example'}) # SessionInitRequest | 
 }
 
@@ -3655,8 +5359,9 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **session_id** | **String** | Session ID |  |
+| **session_id** | **String** |  |  |
 | **directory** | **String** |  | [optional] |
+| **workspace** | **String** |  | [optional] |
 | **session_init_request** | [**SessionInitRequest**](SessionInitRequest.md) |  | [optional] |
 
 ### Return type
@@ -3689,7 +5394,12 @@ require 'opencode_client'
 
 api_instance = OpencodeClient::DefaultApi.new
 opts = {
-  directory: 'directory_example' # String | 
+  directory: 'directory_example', # String | Filter sessions by project directory
+  workspace: 'workspace_example', # String | 
+  roots: true, # Boolean | Only return root sessions (no parentID)
+  start: 8.14, # Float | Filter sessions updated on or after this timestamp (milliseconds since epoch)
+  search: 'search_example', # String | Filter sessions by title (case-insensitive)
+  limit: 8.14 # Float | Maximum number of sessions to return
 }
 
 begin
@@ -3723,7 +5433,12 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **directory** | **String** |  | [optional] |
+| **directory** | **String** | Filter sessions by project directory | [optional] |
+| **workspace** | **String** |  | [optional] |
+| **roots** | **Boolean** | Only return root sessions (no parentID) | [optional] |
+| **start** | **Float** | Filter sessions updated on or after this timestamp (milliseconds since epoch) | [optional] |
+| **search** | **String** | Filter sessions by title (case-insensitive) | [optional] |
+| **limit** | **Float** | Maximum number of sessions to return | [optional] |
 
 ### Return type
 
@@ -3754,10 +5469,11 @@ require 'time'
 require 'opencode_client'
 
 api_instance = OpencodeClient::DefaultApi.new
-session_id = 'session_id_example' # String | Session ID
-message_id = 'message_id_example' # String | Message ID
+session_id = 'session_id_example' # String | 
+message_id = 'message_id_example' # String | 
 opts = {
-  directory: 'directory_example' # String | 
+  directory: 'directory_example', # String | 
+  workspace: 'workspace_example' # String | 
 }
 
 begin
@@ -3791,9 +5507,10 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **session_id** | **String** | Session ID |  |
-| **message_id** | **String** | Message ID |  |
+| **session_id** | **String** |  |  |
+| **message_id** | **String** |  |  |
 | **directory** | **String** |  | [optional] |
+| **workspace** | **String** |  | [optional] |
 
 ### Return type
 
@@ -3824,10 +5541,12 @@ require 'time'
 require 'opencode_client'
 
 api_instance = OpencodeClient::DefaultApi.new
-session_id = 'session_id_example' # String | Session ID
+session_id = 'session_id_example' # String | 
 opts = {
   directory: 'directory_example', # String | 
-  limit: 8.14 # Float | 
+  workspace: 'workspace_example', # String | 
+  limit: 56, # Integer | Maximum number of messages to return
+  before: 'before_example' # String | 
 }
 
 begin
@@ -3861,9 +5580,11 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **session_id** | **String** | Session ID |  |
+| **session_id** | **String** |  |  |
 | **directory** | **String** |  | [optional] |
-| **limit** | **Float** |  | [optional] |
+| **workspace** | **String** |  | [optional] |
+| **limit** | **Integer** | Maximum number of messages to return | [optional] |
+| **before** | **String** |  | [optional] |
 
 ### Return type
 
@@ -3894,9 +5615,10 @@ require 'time'
 require 'opencode_client'
 
 api_instance = OpencodeClient::DefaultApi.new
-session_id = 'session_id_example' # String | Session ID
+session_id = 'session_id_example' # String | 
 opts = {
   directory: 'directory_example', # String | 
+  workspace: 'workspace_example', # String | 
   session_prompt_request: OpencodeClient::SessionPromptRequest.new({parts: [OpencodeClient::SessionPromptRequestPartsInner.new({type: 'text', text: 'text_example', mime: 'mime_example', url: 'url_example', name: 'name_example', prompt: 'prompt_example', description: 'description_example', agent: 'agent_example'})]}) # SessionPromptRequest | 
 }
 
@@ -3931,8 +5653,9 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **session_id** | **String** | Session ID |  |
+| **session_id** | **String** |  |  |
 | **directory** | **String** |  | [optional] |
+| **workspace** | **String** |  | [optional] |
 | **session_prompt_request** | [**SessionPromptRequest**](SessionPromptRequest.md) |  | [optional] |
 
 ### Return type
@@ -3964,9 +5687,10 @@ require 'time'
 require 'opencode_client'
 
 api_instance = OpencodeClient::DefaultApi.new
-session_id = 'session_id_example' # String | Session ID
+session_id = 'session_id_example' # String | 
 opts = {
   directory: 'directory_example', # String | 
+  workspace: 'workspace_example', # String | 
   session_prompt_request: OpencodeClient::SessionPromptRequest.new({parts: [OpencodeClient::SessionPromptRequestPartsInner.new({type: 'text', text: 'text_example', mime: 'mime_example', url: 'url_example', name: 'name_example', prompt: 'prompt_example', description: 'description_example', agent: 'agent_example'})]}) # SessionPromptRequest | 
 }
 
@@ -4000,8 +5724,9 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **session_id** | **String** | Session ID |  |
+| **session_id** | **String** |  |  |
 | **directory** | **String** |  | [optional] |
+| **workspace** | **String** |  | [optional] |
 | **session_prompt_request** | [**SessionPromptRequest**](SessionPromptRequest.md) |  | [optional] |
 
 ### Return type
@@ -4036,6 +5761,7 @@ api_instance = OpencodeClient::DefaultApi.new
 session_id = 'session_id_example' # String | 
 opts = {
   directory: 'directory_example', # String | 
+  workspace: 'workspace_example', # String | 
   session_revert_request: OpencodeClient::SessionRevertRequest.new({message_id: 'message_id_example'}) # SessionRevertRequest | 
 }
 
@@ -4072,6 +5798,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | **session_id** | **String** |  |  |
 | **directory** | **String** |  | [optional] |
+| **workspace** | **String** |  | [optional] |
 | **session_revert_request** | [**SessionRevertRequest**](SessionRevertRequest.md) |  | [optional] |
 
 ### Return type
@@ -4105,7 +5832,8 @@ require 'opencode_client'
 api_instance = OpencodeClient::DefaultApi.new
 session_id = 'session_id_example' # String | 
 opts = {
-  directory: 'directory_example' # String | 
+  directory: 'directory_example', # String | 
+  workspace: 'workspace_example' # String | 
 }
 
 begin
@@ -4141,6 +5869,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | **session_id** | **String** |  |  |
 | **directory** | **String** |  | [optional] |
+| **workspace** | **String** |  | [optional] |
 
 ### Return type
 
@@ -4158,7 +5887,7 @@ No authorization required
 
 ## session_shell
 
-> <AssistantMessage> session_shell(session_id, opts)
+> <SessionMessages200ResponseInner> session_shell(session_id, opts)
 
 Run shell command
 
@@ -4171,9 +5900,10 @@ require 'time'
 require 'opencode_client'
 
 api_instance = OpencodeClient::DefaultApi.new
-session_id = 'session_id_example' # String | Session ID
+session_id = 'session_id_example' # String | 
 opts = {
   directory: 'directory_example', # String | 
+  workspace: 'workspace_example', # String | 
   session_shell_request: OpencodeClient::SessionShellRequest.new({agent: 'agent_example', command: 'command_example'}) # SessionShellRequest | 
 }
 
@@ -4190,7 +5920,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<AssistantMessage>, Integer, Hash)> session_shell_with_http_info(session_id, opts)
+> <Array(<SessionMessages200ResponseInner>, Integer, Hash)> session_shell_with_http_info(session_id, opts)
 
 ```ruby
 begin
@@ -4198,7 +5928,7 @@ begin
   data, status_code, headers = api_instance.session_shell_with_http_info(session_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <AssistantMessage>
+  p data # => <SessionMessages200ResponseInner>
 rescue OpencodeClient::ApiError => e
   puts "Error when calling DefaultApi->session_shell_with_http_info: #{e}"
 end
@@ -4208,13 +5938,14 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **session_id** | **String** | Session ID |  |
+| **session_id** | **String** |  |  |
 | **directory** | **String** |  | [optional] |
+| **workspace** | **String** |  | [optional] |
 | **session_shell_request** | [**SessionShellRequest**](SessionShellRequest.md) |  | [optional] |
 
 ### Return type
 
-[**AssistantMessage**](AssistantMessage.md)
+[**SessionMessages200ResponseInner**](SessionMessages200ResponseInner.md)
 
 ### Authorization
 
@@ -4242,7 +5973,8 @@ require 'opencode_client'
 
 api_instance = OpencodeClient::DefaultApi.new
 opts = {
-  directory: 'directory_example' # String | 
+  directory: 'directory_example', # String | 
+  workspace: 'workspace_example' # String | 
 }
 
 begin
@@ -4277,6 +6009,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **directory** | **String** |  | [optional] |
+| **workspace** | **String** |  | [optional] |
 
 ### Return type
 
@@ -4307,9 +6040,10 @@ require 'time'
 require 'opencode_client'
 
 api_instance = OpencodeClient::DefaultApi.new
-session_id = 'session_id_example' # String | Session ID
+session_id = 'session_id_example' # String | 
 opts = {
   directory: 'directory_example', # String | 
+  workspace: 'workspace_example', # String | 
   session_summarize_request: OpencodeClient::SessionSummarizeRequest.new({provider_id: 'provider_id_example', model_id: 'model_id_example'}) # SessionSummarizeRequest | 
 }
 
@@ -4344,8 +6078,9 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **session_id** | **String** | Session ID |  |
+| **session_id** | **String** |  |  |
 | **directory** | **String** |  | [optional] |
+| **workspace** | **String** |  | [optional] |
 | **session_summarize_request** | [**SessionSummarizeRequest**](SessionSummarizeRequest.md) |  | [optional] |
 
 ### Return type
@@ -4377,9 +6112,10 @@ require 'time'
 require 'opencode_client'
 
 api_instance = OpencodeClient::DefaultApi.new
-session_id = 'session_id_example' # String | Session ID
+session_id = 'session_id_example' # String | 
 opts = {
-  directory: 'directory_example' # String | 
+  directory: 'directory_example', # String | 
+  workspace: 'workspace_example' # String | 
 }
 
 begin
@@ -4413,8 +6149,9 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **session_id** | **String** | Session ID |  |
+| **session_id** | **String** |  |  |
 | **directory** | **String** |  | [optional] |
+| **workspace** | **String** |  | [optional] |
 
 ### Return type
 
@@ -4447,7 +6184,8 @@ require 'opencode_client'
 api_instance = OpencodeClient::DefaultApi.new
 session_id = 'session_id_example' # String | 
 opts = {
-  directory: 'directory_example' # String | 
+  directory: 'directory_example', # String | 
+  workspace: 'workspace_example' # String | 
 }
 
 begin
@@ -4483,6 +6221,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | **session_id** | **String** |  |  |
 | **directory** | **String** |  | [optional] |
+| **workspace** | **String** |  | [optional] |
 
 ### Return type
 
@@ -4515,7 +6254,8 @@ require 'opencode_client'
 api_instance = OpencodeClient::DefaultApi.new
 session_id = 'session_id_example' # String | 
 opts = {
-  directory: 'directory_example' # String | 
+  directory: 'directory_example', # String | 
+  workspace: 'workspace_example' # String | 
 }
 
 begin
@@ -4551,6 +6291,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | **session_id** | **String** |  |  |
 | **directory** | **String** |  | [optional] |
+| **workspace** | **String** |  | [optional] |
 
 ### Return type
 
@@ -4584,6 +6325,7 @@ api_instance = OpencodeClient::DefaultApi.new
 session_id = 'session_id_example' # String | 
 opts = {
   directory: 'directory_example', # String | 
+  workspace: 'workspace_example', # String | 
   session_update_request: OpencodeClient::SessionUpdateRequest.new # SessionUpdateRequest | 
 }
 
@@ -4620,6 +6362,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | **session_id** | **String** |  |  |
 | **directory** | **String** |  | [optional] |
+| **workspace** | **String** |  | [optional] |
 | **session_update_request** | [**SessionUpdateRequest**](SessionUpdateRequest.md) |  | [optional] |
 
 ### Return type
@@ -4652,7 +6395,8 @@ require 'opencode_client'
 
 api_instance = OpencodeClient::DefaultApi.new
 opts = {
-  directory: 'directory_example' # String | 
+  directory: 'directory_example', # String | 
+  workspace: 'workspace_example' # String | 
 }
 
 begin
@@ -4687,6 +6431,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **directory** | **String** |  | [optional] |
+| **workspace** | **String** |  | [optional] |
 
 ### Return type
 
@@ -4720,7 +6465,8 @@ api_instance = OpencodeClient::DefaultApi.new
 provider = 'provider_example' # String | 
 model = 'model_example' # String | 
 opts = {
-  directory: 'directory_example' # String | 
+  directory: 'directory_example', # String | 
+  workspace: 'workspace_example' # String | 
 }
 
 begin
@@ -4757,6 +6503,7 @@ end
 | **provider** | **String** |  |  |
 | **model** | **String** |  |  |
 | **directory** | **String** |  | [optional] |
+| **workspace** | **String** |  | [optional] |
 
 ### Return type
 
@@ -4789,6 +6536,7 @@ require 'opencode_client'
 api_instance = OpencodeClient::DefaultApi.new
 opts = {
   directory: 'directory_example', # String | 
+  workspace: 'workspace_example', # String | 
   find_text200_response_inner_path: OpencodeClient::FindText200ResponseInnerPath.new({text: 'text_example'}) # FindText200ResponseInnerPath | 
 }
 
@@ -4824,6 +6572,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **directory** | **String** |  | [optional] |
+| **workspace** | **String** |  | [optional] |
 | **find_text200_response_inner_path** | [**FindText200ResponseInnerPath**](FindText200ResponseInnerPath.md) |  | [optional] |
 
 ### Return type
@@ -4856,7 +6605,8 @@ require 'opencode_client'
 
 api_instance = OpencodeClient::DefaultApi.new
 opts = {
-  directory: 'directory_example' # String | 
+  directory: 'directory_example', # String | 
+  workspace: 'workspace_example' # String | 
 }
 
 begin
@@ -4891,6 +6641,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **directory** | **String** |  | [optional] |
+| **workspace** | **String** |  | [optional] |
 
 ### Return type
 
@@ -4922,7 +6673,8 @@ require 'opencode_client'
 
 api_instance = OpencodeClient::DefaultApi.new
 opts = {
-  directory: 'directory_example' # String | 
+  directory: 'directory_example', # String | 
+  workspace: 'workspace_example' # String | 
 }
 
 begin
@@ -4957,6 +6709,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **directory** | **String** |  | [optional] |
+| **workspace** | **String** |  | [optional] |
 
 ### Return type
 
@@ -4989,6 +6742,7 @@ require 'opencode_client'
 api_instance = OpencodeClient::DefaultApi.new
 opts = {
   directory: 'directory_example', # String | 
+  workspace: 'workspace_example', # String | 
   body: 3.56 # Object | 
 }
 
@@ -5024,6 +6778,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **directory** | **String** |  | [optional] |
+| **workspace** | **String** |  | [optional] |
 | **body** | **Object** |  | [optional] |
 
 ### Return type
@@ -5057,6 +6812,7 @@ require 'opencode_client'
 api_instance = OpencodeClient::DefaultApi.new
 opts = {
   directory: 'directory_example', # String | 
+  workspace: 'workspace_example', # String | 
   tui_execute_command_request: OpencodeClient::TuiExecuteCommandRequest.new({command: 'command_example'}) # TuiExecuteCommandRequest | 
 }
 
@@ -5092,6 +6848,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **directory** | **String** |  | [optional] |
+| **workspace** | **String** |  | [optional] |
 | **tui_execute_command_request** | [**TuiExecuteCommandRequest**](TuiExecuteCommandRequest.md) |  | [optional] |
 
 ### Return type
@@ -5124,7 +6881,8 @@ require 'opencode_client'
 
 api_instance = OpencodeClient::DefaultApi.new
 opts = {
-  directory: 'directory_example' # String | 
+  directory: 'directory_example', # String | 
+  workspace: 'workspace_example' # String | 
 }
 
 begin
@@ -5159,6 +6917,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **directory** | **String** |  | [optional] |
+| **workspace** | **String** |  | [optional] |
 
 ### Return type
 
@@ -5190,7 +6949,8 @@ require 'opencode_client'
 
 api_instance = OpencodeClient::DefaultApi.new
 opts = {
-  directory: 'directory_example' # String | 
+  directory: 'directory_example', # String | 
+  workspace: 'workspace_example' # String | 
 }
 
 begin
@@ -5225,6 +6985,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **directory** | **String** |  | [optional] |
+| **workspace** | **String** |  | [optional] |
 
 ### Return type
 
@@ -5256,7 +7017,8 @@ require 'opencode_client'
 
 api_instance = OpencodeClient::DefaultApi.new
 opts = {
-  directory: 'directory_example' # String | 
+  directory: 'directory_example', # String | 
+  workspace: 'workspace_example' # String | 
 }
 
 begin
@@ -5291,6 +7053,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **directory** | **String** |  | [optional] |
+| **workspace** | **String** |  | [optional] |
 
 ### Return type
 
@@ -5322,7 +7085,8 @@ require 'opencode_client'
 
 api_instance = OpencodeClient::DefaultApi.new
 opts = {
-  directory: 'directory_example' # String | 
+  directory: 'directory_example', # String | 
+  workspace: 'workspace_example' # String | 
 }
 
 begin
@@ -5357,6 +7121,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **directory** | **String** |  | [optional] |
+| **workspace** | **String** |  | [optional] |
 
 ### Return type
 
@@ -5389,7 +7154,8 @@ require 'opencode_client'
 api_instance = OpencodeClient::DefaultApi.new
 opts = {
   directory: 'directory_example', # String | 
-  tui_publish_request: OpencodeClient::TuiPublishRequest.new({type: 'tui.prompt.append', properties: OpencodeClient::TuiShowToastRequest.new({message: 'message_example', variant: 'info'})}) # TuiPublishRequest | 
+  workspace: 'workspace_example', # String | 
+  tui_publish_request: OpencodeClient::TuiPublishRequest.new({type: 'tui.prompt.append', properties: OpencodeClient::TuiSelectSessionRequest.new({session_id: 'session_id_example'})}) # TuiPublishRequest | 
 }
 
 begin
@@ -5424,7 +7190,78 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **directory** | **String** |  | [optional] |
+| **workspace** | **String** |  | [optional] |
 | **tui_publish_request** | [**TuiPublishRequest**](TuiPublishRequest.md) |  | [optional] |
+
+### Return type
+
+**Boolean**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## tui_select_session
+
+> Boolean tui_select_session(opts)
+
+Select session
+
+Navigate the TUI to display the specified session.
+
+### Examples
+
+```ruby
+require 'time'
+require 'opencode_client'
+
+api_instance = OpencodeClient::DefaultApi.new
+opts = {
+  directory: 'directory_example', # String | 
+  workspace: 'workspace_example', # String | 
+  tui_select_session_request: OpencodeClient::TuiSelectSessionRequest.new({session_id: 'session_id_example'}) # TuiSelectSessionRequest | 
+}
+
+begin
+  # Select session
+  result = api_instance.tui_select_session(opts)
+  p result
+rescue OpencodeClient::ApiError => e
+  puts "Error when calling DefaultApi->tui_select_session: #{e}"
+end
+```
+
+#### Using the tui_select_session_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(Boolean, Integer, Hash)> tui_select_session_with_http_info(opts)
+
+```ruby
+begin
+  # Select session
+  data, status_code, headers = api_instance.tui_select_session_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => Boolean
+rescue OpencodeClient::ApiError => e
+  puts "Error when calling DefaultApi->tui_select_session_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **directory** | **String** |  | [optional] |
+| **workspace** | **String** |  | [optional] |
+| **tui_select_session_request** | [**TuiSelectSessionRequest**](TuiSelectSessionRequest.md) |  | [optional] |
 
 ### Return type
 
@@ -5457,6 +7294,7 @@ require 'opencode_client'
 api_instance = OpencodeClient::DefaultApi.new
 opts = {
   directory: 'directory_example', # String | 
+  workspace: 'workspace_example', # String | 
   tui_show_toast_request: OpencodeClient::TuiShowToastRequest.new({message: 'message_example', variant: 'info'}) # TuiShowToastRequest | 
 }
 
@@ -5492,6 +7330,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **directory** | **String** |  | [optional] |
+| **workspace** | **String** |  | [optional] |
 | **tui_show_toast_request** | [**TuiShowToastRequest**](TuiShowToastRequest.md) |  | [optional] |
 
 ### Return type
@@ -5524,7 +7363,8 @@ require 'opencode_client'
 
 api_instance = OpencodeClient::DefaultApi.new
 opts = {
-  directory: 'directory_example' # String | 
+  directory: 'directory_example', # String | 
+  workspace: 'workspace_example' # String | 
 }
 
 begin
@@ -5559,10 +7399,81 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **directory** | **String** |  | [optional] |
+| **workspace** | **String** |  | [optional] |
 
 ### Return type
 
 **Boolean**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## vcs_diff
+
+> <Array<VcsFileDiff>> vcs_diff(mode, opts)
+
+Get VCS diff
+
+Retrieve the current git diff for the working tree or against the default branch.
+
+### Examples
+
+```ruby
+require 'time'
+require 'opencode_client'
+
+api_instance = OpencodeClient::DefaultApi.new
+mode = 'git' # String | 
+opts = {
+  directory: 'directory_example', # String | 
+  workspace: 'workspace_example' # String | 
+}
+
+begin
+  # Get VCS diff
+  result = api_instance.vcs_diff(mode, opts)
+  p result
+rescue OpencodeClient::ApiError => e
+  puts "Error when calling DefaultApi->vcs_diff: #{e}"
+end
+```
+
+#### Using the vcs_diff_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<Array<VcsFileDiff>>, Integer, Hash)> vcs_diff_with_http_info(mode, opts)
+
+```ruby
+begin
+  # Get VCS diff
+  data, status_code, headers = api_instance.vcs_diff_with_http_info(mode, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <Array<VcsFileDiff>>
+rescue OpencodeClient::ApiError => e
+  puts "Error when calling DefaultApi->vcs_diff_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **mode** | **String** |  |  |
+| **directory** | **String** |  | [optional] |
+| **workspace** | **String** |  | [optional] |
+
+### Return type
+
+[**Array&lt;VcsFileDiff&gt;**](VcsFileDiff.md)
 
 ### Authorization
 
@@ -5590,7 +7501,8 @@ require 'opencode_client'
 
 api_instance = OpencodeClient::DefaultApi.new
 opts = {
-  directory: 'directory_example' # String | 
+  directory: 'directory_example', # String | 
+  workspace: 'workspace_example' # String | 
 }
 
 begin
@@ -5625,6 +7537,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **directory** | **String** |  | [optional] |
+| **workspace** | **String** |  | [optional] |
 
 ### Return type
 
@@ -5637,5 +7550,283 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## worktree_create
+
+> <Worktree> worktree_create(opts)
+
+Create worktree
+
+Create a new git worktree for the current project and run any configured startup scripts.
+
+### Examples
+
+```ruby
+require 'time'
+require 'opencode_client'
+
+api_instance = OpencodeClient::DefaultApi.new
+opts = {
+  directory: 'directory_example', # String | 
+  workspace: 'workspace_example', # String | 
+  worktree_create_input: OpencodeClient::WorktreeCreateInput.new # WorktreeCreateInput | 
+}
+
+begin
+  # Create worktree
+  result = api_instance.worktree_create(opts)
+  p result
+rescue OpencodeClient::ApiError => e
+  puts "Error when calling DefaultApi->worktree_create: #{e}"
+end
+```
+
+#### Using the worktree_create_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<Worktree>, Integer, Hash)> worktree_create_with_http_info(opts)
+
+```ruby
+begin
+  # Create worktree
+  data, status_code, headers = api_instance.worktree_create_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <Worktree>
+rescue OpencodeClient::ApiError => e
+  puts "Error when calling DefaultApi->worktree_create_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **directory** | **String** |  | [optional] |
+| **workspace** | **String** |  | [optional] |
+| **worktree_create_input** | [**WorktreeCreateInput**](WorktreeCreateInput.md) |  | [optional] |
+
+### Return type
+
+[**Worktree**](Worktree.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## worktree_list
+
+> Array&lt;String&gt; worktree_list(opts)
+
+List worktrees
+
+List all sandbox worktrees for the current project.
+
+### Examples
+
+```ruby
+require 'time'
+require 'opencode_client'
+
+api_instance = OpencodeClient::DefaultApi.new
+opts = {
+  directory: 'directory_example', # String | 
+  workspace: 'workspace_example' # String | 
+}
+
+begin
+  # List worktrees
+  result = api_instance.worktree_list(opts)
+  p result
+rescue OpencodeClient::ApiError => e
+  puts "Error when calling DefaultApi->worktree_list: #{e}"
+end
+```
+
+#### Using the worktree_list_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(Array&lt;String&gt;, Integer, Hash)> worktree_list_with_http_info(opts)
+
+```ruby
+begin
+  # List worktrees
+  data, status_code, headers = api_instance.worktree_list_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => Array&lt;String&gt;
+rescue OpencodeClient::ApiError => e
+  puts "Error when calling DefaultApi->worktree_list_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **directory** | **String** |  | [optional] |
+| **workspace** | **String** |  | [optional] |
+
+### Return type
+
+**Array&lt;String&gt;**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## worktree_remove
+
+> Boolean worktree_remove(opts)
+
+Remove worktree
+
+Remove a git worktree and delete its branch.
+
+### Examples
+
+```ruby
+require 'time'
+require 'opencode_client'
+
+api_instance = OpencodeClient::DefaultApi.new
+opts = {
+  directory: 'directory_example', # String | 
+  workspace: 'workspace_example', # String | 
+  worktree_remove_input: OpencodeClient::WorktreeRemoveInput.new({directory: 'directory_example'}) # WorktreeRemoveInput | 
+}
+
+begin
+  # Remove worktree
+  result = api_instance.worktree_remove(opts)
+  p result
+rescue OpencodeClient::ApiError => e
+  puts "Error when calling DefaultApi->worktree_remove: #{e}"
+end
+```
+
+#### Using the worktree_remove_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(Boolean, Integer, Hash)> worktree_remove_with_http_info(opts)
+
+```ruby
+begin
+  # Remove worktree
+  data, status_code, headers = api_instance.worktree_remove_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => Boolean
+rescue OpencodeClient::ApiError => e
+  puts "Error when calling DefaultApi->worktree_remove_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **directory** | **String** |  | [optional] |
+| **workspace** | **String** |  | [optional] |
+| **worktree_remove_input** | [**WorktreeRemoveInput**](WorktreeRemoveInput.md) |  | [optional] |
+
+### Return type
+
+**Boolean**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## worktree_reset
+
+> Boolean worktree_reset(opts)
+
+Reset worktree
+
+Reset a worktree branch to the primary default branch.
+
+### Examples
+
+```ruby
+require 'time'
+require 'opencode_client'
+
+api_instance = OpencodeClient::DefaultApi.new
+opts = {
+  directory: 'directory_example', # String | 
+  workspace: 'workspace_example', # String | 
+  worktree_reset_input: OpencodeClient::WorktreeResetInput.new({directory: 'directory_example'}) # WorktreeResetInput | 
+}
+
+begin
+  # Reset worktree
+  result = api_instance.worktree_reset(opts)
+  p result
+rescue OpencodeClient::ApiError => e
+  puts "Error when calling DefaultApi->worktree_reset: #{e}"
+end
+```
+
+#### Using the worktree_reset_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(Boolean, Integer, Hash)> worktree_reset_with_http_info(opts)
+
+```ruby
+begin
+  # Reset worktree
+  data, status_code, headers = api_instance.worktree_reset_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => Boolean
+rescue OpencodeClient::ApiError => e
+  puts "Error when calling DefaultApi->worktree_reset_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **directory** | **String** |  | [optional] |
+| **workspace** | **String** |  | [optional] |
+| **worktree_reset_input** | [**WorktreeResetInput**](WorktreeResetInput.md) |  | [optional] |
+
+### Return type
+
+**Boolean**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 

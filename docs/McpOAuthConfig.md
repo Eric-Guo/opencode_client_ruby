@@ -7,6 +7,7 @@
 | **client_id** | **String** | OAuth client ID. If not provided, dynamic client registration (RFC 7591) will be attempted. | [optional] |
 | **client_secret** | **String** | OAuth client secret (if required by the authorization server) | [optional] |
 | **scope** | **String** | OAuth scopes to request during authorization | [optional] |
+| **redirect_uri** | **String** | OAuth redirect URI (default: http://127.0.0.1:19876/mcp/oauth/callback). | [optional] |
 
 ## Example
 
@@ -16,7 +17,8 @@ require 'opencode_client'
 instance = OpencodeClient::McpOAuthConfig.new(
   client_id: null,
   client_secret: null,
-  scope: null
+  scope: null,
+  redirect_uri: null
 )
 ```
 

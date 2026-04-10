@@ -5,7 +5,7 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **session_id** | **String** |  |  |
-| **diff** | [**Array&lt;FileDiff&gt;**](FileDiff.md) |  |  |
+| **diff** | [**Array&lt;SnapshotFileDiff&gt;**](SnapshotFileDiff.md) |  |  |
 
 ## Example
 

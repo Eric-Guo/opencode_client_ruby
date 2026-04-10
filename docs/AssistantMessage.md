@@ -8,7 +8,7 @@
 | **session_id** | **String** |  |  |
 | **role** | **String** |  |  |
 | **time** | [**AssistantMessageTime**](AssistantMessageTime.md) |  |  |
-| **error** | [**AssistantMessageError**](AssistantMessageError.md) |  | [optional] |
+| **error** | [**EventSessionErrorPropertiesError**](EventSessionErrorPropertiesError.md) |  | [optional] |
 | **parent_id** | **String** |  |  |
 | **model_id** | **String** |  |  |
 | **provider_id** | **String** |  |  |
@@ -18,6 +18,8 @@
 | **summary** | **Boolean** |  | [optional] |
 | **cost** | **Float** |  |  |
 | **tokens** | [**AssistantMessageTokens**](AssistantMessageTokens.md) |  |  |
+| **structured** | **Object** |  | [optional] |
+| **variant** | **String** |  | [optional] |
 | **finish** | **String** |  | [optional] |
 
 ## Example
@@ -40,6 +42,8 @@ instance = OpencodeClient::AssistantMessage.new(
   summary: null,
   cost: null,
   tokens: null,
+  structured: null,
+  variant: null,
   finish: null
 )
 ```

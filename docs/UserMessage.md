@@ -8,9 +8,10 @@
 | **session_id** | **String** |  |  |
 | **role** | **String** |  |  |
 | **time** | [**UserMessageTime**](UserMessageTime.md) |  |  |
+| **format** | [**OutputFormat**](OutputFormat.md) |  | [optional] |
 | **summary** | [**UserMessageSummary**](UserMessageSummary.md) |  | [optional] |
 | **agent** | **String** |  |  |
-| **model** | [**SessionPromptRequestModel**](SessionPromptRequestModel.md) |  |  |
+| **model** | [**UserMessageModel**](UserMessageModel.md) |  |  |
 | **system** | **String** |  | [optional] |
 | **tools** | **Hash&lt;String, Boolean&gt;** |  | [optional] |
 
@@ -24,6 +25,7 @@ instance = OpencodeClient::UserMessage.new(
   session_id: null,
   role: null,
   time: null,
+  format: null,
   summary: null,
   agent: null,
   model: null,

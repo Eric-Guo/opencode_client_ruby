@@ -8,6 +8,7 @@
 | **refresh** | **String** |  |  |
 | **access** | **String** |  |  |
 | **expires** | **Float** |  |  |
+| **account_id** | **String** |  | [optional] |
 | **enterprise_url** | **String** |  | [optional] |
 
 ## Example
@@ -20,6 +21,7 @@ instance = OpencodeClient::OAuth.new(
   refresh: null,
   access: null,
   expires: null,
+  account_id: null,
   enterprise_url: null
 )
 ```

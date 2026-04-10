@@ -16,6 +16,7 @@
 | **prompt** | **String** |  |  |
 | **description** | **String** |  |  |
 | **agent** | **String** |  |  |
+| **model** | [**SessionPromptRequestModel**](SessionPromptRequestModel.md) |  | [optional] |
 | **command** | **String** |  | [optional] |
 | **mime** | **String** |  |  |
 | **filename** | **String** |  | [optional] |
@@ -34,6 +35,8 @@
 | **attempt** | **Float** |  |  |
 | **error** | [**APIError**](APIError.md) |  |  |
 | **auto** | **Boolean** |  |  |
+| **overflow** | **Boolean** |  | [optional] |
+| **tail_start_id** | **String** |  | [optional] |
 
 ## Example
 
@@ -53,6 +56,7 @@ instance = OpencodeClient::Part.new(
   prompt: null,
   description: null,
   agent: null,
+  model: null,
   command: null,
   mime: null,
   filename: null,
@@ -70,7 +74,9 @@ instance = OpencodeClient::Part.new(
   name: null,
   attempt: null,
   error: null,
-  auto: null
+  auto: null,
+  overflow: null,
+  tail_start_id: null
 )
 ```
 

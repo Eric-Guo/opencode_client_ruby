@@ -8,12 +8,13 @@
 | **session_id** | **String** |  |  |
 | **role** | **String** |  |  |
 | **time** | [**AssistantMessageTime**](AssistantMessageTime.md) |  |  |
+| **format** | [**OutputFormat**](OutputFormat.md) |  | [optional] |
 | **summary** | **Boolean** |  | [optional] |
 | **agent** | **String** |  |  |
-| **model** | [**SessionPromptRequestModel**](SessionPromptRequestModel.md) |  |  |
+| **model** | [**UserMessageModel**](UserMessageModel.md) |  |  |
 | **system** | **String** |  | [optional] |
 | **tools** | **Hash&lt;String, Boolean&gt;** |  | [optional] |
-| **error** | [**AssistantMessageError**](AssistantMessageError.md) |  | [optional] |
+| **error** | [**EventSessionErrorPropertiesError**](EventSessionErrorPropertiesError.md) |  | [optional] |
 | **parent_id** | **String** |  |  |
 | **model_id** | **String** |  |  |
 | **provider_id** | **String** |  |  |
@@ -21,6 +22,8 @@
 | **path** | [**AssistantMessagePath**](AssistantMessagePath.md) |  |  |
 | **cost** | **Float** |  |  |
 | **tokens** | [**AssistantMessageTokens**](AssistantMessageTokens.md) |  |  |
+| **structured** | **Object** |  | [optional] |
+| **variant** | **String** |  | [optional] |
 | **finish** | **String** |  | [optional] |
 
 ## Example
@@ -33,6 +36,7 @@ instance = OpencodeClient::Message.new(
   session_id: null,
   role: null,
   time: null,
+  format: null,
   summary: null,
   agent: null,
   model: null,
@@ -46,6 +50,8 @@ instance = OpencodeClient::Message.new(
   path: null,
   cost: null,
   tokens: null,
+  structured: null,
+  variant: null,
   finish: null
 )
 ```

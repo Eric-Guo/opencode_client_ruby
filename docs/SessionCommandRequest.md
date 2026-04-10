@@ -9,6 +9,8 @@
 | **model** | **String** |  | [optional] |
 | **arguments** | **String** |  |  |
 | **command** | **String** |  |  |
+| **variant** | **String** |  | [optional] |
+| **parts** | [**Array&lt;SessionCommandRequestPartsInner&gt;**](SessionCommandRequestPartsInner.md) |  | [optional] |
 
 ## Example
 
@@ -20,7 +22,9 @@ instance = OpencodeClient::SessionCommandRequest.new(
   agent: null,
   model: null,
   arguments: null,
-  command: null
+  command: null,
+  variant: null,
+  parts: null
 )
 ```
 

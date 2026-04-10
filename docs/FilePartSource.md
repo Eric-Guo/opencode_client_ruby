@@ -10,6 +10,8 @@
 | **range** | [**Range**](Range.md) |  |  |
 | **name** | **String** |  |  |
 | **kind** | **Integer** |  |  |
+| **client_name** | **String** |  |  |
+| **uri** | **String** |  |  |
 
 ## Example
 
@@ -22,7 +24,9 @@ instance = OpencodeClient::FilePartSource.new(
   path: null,
   range: null,
   name: null,
-  kind: null
+  kind: null,
+  client_name: null,
+  uri: null
 )
 ```
 

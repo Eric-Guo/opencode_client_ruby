@@ -5,7 +5,7 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **type** | **String** |  |  |
-| **properties** | [**TuiShowToastRequest**](TuiShowToastRequest.md) |  |  |
+| **properties** | [**TuiSelectSessionRequest**](TuiSelectSessionRequest.md) |  |  |
 
 ## Example
 

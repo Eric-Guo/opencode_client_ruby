@@ -4,7 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **all** | [**Array&lt;ProviderList200ResponseAllInner&gt;**](ProviderList200ResponseAllInner.md) |  |  |
+| **all** | [**Array&lt;Provider&gt;**](Provider.md) |  |  |
 | **default** | **Hash&lt;String, String&gt;** |  |  |
 | **connected** | **Array&lt;String&gt;** |  |  |
 

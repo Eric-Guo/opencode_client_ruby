@@ -5,6 +5,7 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **method** | **Float** | Auth method index |  |
+| **inputs** | **Hash&lt;String, String&gt;** | Prompt inputs | [optional] |
 
 ## Example
 
@@ -12,7 +13,8 @@
 require 'opencode_client'
 
 instance = OpencodeClient::ProviderOauthAuthorizeRequest.new(
-  method: null
+  method: null,
+  inputs: null
 )
 ```
 

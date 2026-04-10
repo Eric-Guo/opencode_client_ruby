@@ -6,6 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **type** | **String** |  |  |
 | **label** | **String** |  |  |
+| **prompts** | [**Array&lt;ProviderAuthMethodPromptsInner&gt;**](ProviderAuthMethodPromptsInner.md) |  | [optional] |
 
 ## Example
 
@@ -14,7 +15,8 @@ require 'opencode_client'
 
 instance = OpencodeClient::ProviderAuthMethod.new(
   type: null,
-  label: null
+  label: null,
+  prompts: null
 )
 ```
 

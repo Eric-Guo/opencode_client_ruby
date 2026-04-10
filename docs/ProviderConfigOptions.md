@@ -9,6 +9,7 @@
 | **enterprise_url** | **String** | GitHub Enterprise URL for copilot authentication | [optional] |
 | **set_cache_key** | **Boolean** | Enable promptCacheKey for this provider (default false) | [optional] |
 | **timeout** | [**ProviderConfigOptionsTimeout**](ProviderConfigOptionsTimeout.md) |  | [optional] |
+| **chunk_timeout** | **Integer** | Timeout in milliseconds between streamed SSE chunks for this provider. If no chunk arrives within this window, the request is aborted. | [optional] |
 
 ## Example
 
@@ -20,7 +21,8 @@ instance = OpencodeClient::ProviderConfigOptions.new(
   base_url: null,
   enterprise_url: null,
   set_cache_key: null,
-  timeout: null
+  timeout: null,
+  chunk_timeout: null
 )
 ```
 

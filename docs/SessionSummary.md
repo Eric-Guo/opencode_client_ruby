@@ -7,7 +7,7 @@
 | **additions** | **Float** |  |  |
 | **deletions** | **Float** |  |  |
 | **files** | **Float** |  |  |
-| **diffs** | [**Array&lt;FileDiff&gt;**](FileDiff.md) |  | [optional] |
+| **diffs** | [**Array&lt;SnapshotFileDiff&gt;**](SnapshotFileDiff.md) |  | [optional] |
 
 ## Example
 

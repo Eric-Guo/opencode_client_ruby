@@ -6,6 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **name** | **String** |  | [optional] |
 | **icon** | [**ProjectUpdateRequestIcon**](ProjectUpdateRequestIcon.md) |  | [optional] |
+| **commands** | [**ProjectUpdateRequestCommands**](ProjectUpdateRequestCommands.md) |  | [optional] |
 
 ## Example
 
@@ -14,7 +15,8 @@ require 'opencode_client'
 
 instance = OpencodeClient::ProjectUpdateRequest.new(
   name: null,
-  icon: null
+  icon: null,
+  commands: null
 )
 ```
 

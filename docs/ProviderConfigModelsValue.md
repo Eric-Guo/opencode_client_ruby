@@ -13,14 +13,15 @@
 | **temperature** | **Boolean** |  | [optional] |
 | **tool_call** | **Boolean** |  | [optional] |
 | **interleaved** | [**ProviderConfigModelsValueInterleaved**](ProviderConfigModelsValueInterleaved.md) |  | [optional] |
-| **cost** | [**ProviderList200ResponseAllInnerModelsValueCost**](ProviderList200ResponseAllInnerModelsValueCost.md) |  | [optional] |
-| **limit** | [**ProviderList200ResponseAllInnerModelsValueLimit**](ProviderList200ResponseAllInnerModelsValueLimit.md) |  | [optional] |
-| **modalities** | [**ProviderList200ResponseAllInnerModelsValueModalities**](ProviderList200ResponseAllInnerModelsValueModalities.md) |  | [optional] |
+| **cost** | [**ProviderConfigModelsValueCost**](ProviderConfigModelsValueCost.md) |  | [optional] |
+| **limit** | [**ProviderConfigModelsValueLimit**](ProviderConfigModelsValueLimit.md) |  | [optional] |
+| **modalities** | [**ProviderConfigModelsValueModalities**](ProviderConfigModelsValueModalities.md) |  | [optional] |
 | **experimental** | **Boolean** |  | [optional] |
 | **status** | **String** |  | [optional] |
+| **provider** | [**ProviderConfigModelsValueProvider**](ProviderConfigModelsValueProvider.md) |  | [optional] |
 | **options** | **Hash&lt;String, Object&gt;** |  | [optional] |
 | **headers** | **Hash&lt;String, String&gt;** |  | [optional] |
-| **provider** | [**ProviderList200ResponseAllInnerModelsValueProvider**](ProviderList200ResponseAllInnerModelsValueProvider.md) |  | [optional] |
+| **variants** | [**Hash&lt;String, ProviderConfigModelsValueVariantsValue&gt;**](ProviderConfigModelsValueVariantsValue.md) | Variant-specific configuration | [optional] |
 
 ## Example
 
@@ -42,9 +43,10 @@ instance = OpencodeClient::ProviderConfigModelsValue.new(
   modalities: null,
   experimental: null,
   status: null,
+  provider: null,
   options: null,
   headers: null,
-  provider: null
+  variants: null
 )
 ```
 

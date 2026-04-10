@@ -4,6 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
+| **total** | **Float** |  | [optional] |
 | **input** | **Float** |  |  |
 | **output** | **Float** |  |  |
 | **reasoning** | **Float** |  |  |
@@ -15,6 +16,7 @@
 require 'opencode_client'
 
 instance = OpencodeClient::AssistantMessageTokens.new(
+  total: null,
   input: null,
   output: null,
   reasoning: null,

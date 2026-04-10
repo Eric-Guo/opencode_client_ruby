@@ -5,7 +5,9 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **id** | **String** |  |  |
+| **slug** | **String** |  |  |
 | **project_id** | **String** |  |  |
+| **workspace_id** | **String** |  | [optional] |
 | **directory** | **String** |  |  |
 | **parent_id** | **String** |  | [optional] |
 | **summary** | [**SessionSummary**](SessionSummary.md) |  | [optional] |
@@ -13,6 +15,7 @@
 | **title** | **String** |  |  |
 | **version** | **String** |  |  |
 | **time** | [**SessionTime**](SessionTime.md) |  |  |
+| **permission** | [**Array&lt;PermissionRule&gt;**](PermissionRule.md) |  | [optional] |
 | **revert** | [**SessionRevert**](SessionRevert.md) |  | [optional] |
 
 ## Example
@@ -22,7 +25,9 @@ require 'opencode_client'
 
 instance = OpencodeClient::Session.new(
   id: null,
+  slug: null,
   project_id: null,
+  workspace_id: null,
   directory: null,
   parent_id: null,
   summary: null,
@@ -30,6 +35,7 @@ instance = OpencodeClient::Session.new(
   title: null,
   version: null,
   time: null,
+  permission: null,
   revert: null
 )
 ```

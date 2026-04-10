@@ -5,7 +5,7 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **session_id** | **String** |  | [optional] |
-| **error** | [**AssistantMessageError**](AssistantMessageError.md) |  | [optional] |
+| **error** | [**EventSessionErrorPropertiesError**](EventSessionErrorPropertiesError.md) |  | [optional] |
 
 ## Example
 

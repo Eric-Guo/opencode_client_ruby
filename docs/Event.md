@@ -5,7 +5,7 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **type** | **String** |  |  |
-| **properties** | **Object** |  |  |
+| **properties** | [**EventSessionCreatedProperties**](EventSessionCreatedProperties.md) |  |  |
 
 ## Example
 

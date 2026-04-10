@@ -9,6 +9,7 @@
 | **prompt** | **String** |  |  |
 | **description** | **String** |  |  |
 | **agent** | **String** |  |  |
+| **model** | [**SessionPromptRequestModel**](SessionPromptRequestModel.md) |  | [optional] |
 | **command** | **String** |  | [optional] |
 
 ## Example
@@ -22,6 +23,7 @@ instance = OpencodeClient::SubtaskPartInput.new(
   prompt: null,
   description: null,
   agent: null,
+  model: null,
   command: null
 )
 ```

@@ -6,7 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **title** | **String** |  | [optional] |
 | **body** | **String** |  | [optional] |
-| **diffs** | [**Array&lt;FileDiff&gt;**](FileDiff.md) |  |  |
+| **diffs** | [**Array&lt;SnapshotFileDiff&gt;**](SnapshotFileDiff.md) |  |  |
 
 ## Example
 

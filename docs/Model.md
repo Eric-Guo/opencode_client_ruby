@@ -11,11 +11,12 @@
 | **family** | **String** |  | [optional] |
 | **capabilities** | [**ModelCapabilities**](ModelCapabilities.md) |  |  |
 | **cost** | [**ModelCost**](ModelCost.md) |  |  |
-| **limit** | [**ProviderList200ResponseAllInnerModelsValueLimit**](ProviderList200ResponseAllInnerModelsValueLimit.md) |  |  |
+| **limit** | [**ProviderConfigModelsValueLimit**](ProviderConfigModelsValueLimit.md) |  |  |
 | **status** | **String** |  |  |
 | **options** | **Hash&lt;String, Object&gt;** |  |  |
 | **headers** | **Hash&lt;String, String&gt;** |  |  |
 | **release_date** | **String** |  |  |
+| **variants** | **Hash&lt;String, Hash&lt;String, Object&gt;&gt;** |  | [optional] |
 
 ## Example
 
@@ -34,7 +35,8 @@ instance = OpencodeClient::Model.new(
   status: null,
   options: null,
   headers: null,
-  release_date: null
+  release_date: null,
+  variants: null
 )
 ```
 

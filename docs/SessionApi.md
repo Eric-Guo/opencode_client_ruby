@@ -25,7 +25,8 @@ require 'opencode_client'
 api_instance = OpencodeClient::SessionApi.new
 session_id = 'session_id_example' # String | 
 opts = {
-  directory: 'directory_example' # String | 
+  directory: 'directory_example', # String | 
+  workspace: 'workspace_example' # String | 
 }
 
 begin
@@ -61,6 +62,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | **session_id** | **String** |  |  |
 | **directory** | **String** |  | [optional] |
+| **workspace** | **String** |  | [optional] |
 
 ### Return type
 
@@ -93,7 +95,8 @@ require 'opencode_client'
 api_instance = OpencodeClient::SessionApi.new
 session_id = 'session_id_example' # String | 
 opts = {
-  directory: 'directory_example' # String | 
+  directory: 'directory_example', # String | 
+  workspace: 'workspace_example' # String | 
 }
 
 begin
@@ -129,6 +132,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | **session_id** | **String** |  |  |
 | **directory** | **String** |  | [optional] |
+| **workspace** | **String** |  | [optional] |
 
 ### Return type
 

@@ -4,8 +4,9 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
+| **session_id** | **String** |  |  |
 | **part** | [**Part**](Part.md) |  |  |
-| **delta** | **String** |  | [optional] |
+| **time** | **Float** |  |  |
 
 ## Example
 
@@ -13,8 +14,9 @@
 require 'opencode_client'
 
 instance = OpencodeClient::EventMessagePartUpdatedProperties.new(
+  session_id: null,
   part: null,
-  delta: null
+  time: null
 )
 ```
 

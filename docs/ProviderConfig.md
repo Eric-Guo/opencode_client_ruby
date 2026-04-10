@@ -9,10 +9,10 @@
 | **env** | **Array&lt;String&gt;** |  | [optional] |
 | **id** | **String** |  | [optional] |
 | **npm** | **String** |  | [optional] |
-| **models** | [**Hash&lt;String, ProviderConfigModelsValue&gt;**](ProviderConfigModelsValue.md) |  | [optional] |
 | **whitelist** | **Array&lt;String&gt;** |  | [optional] |
 | **blacklist** | **Array&lt;String&gt;** |  | [optional] |
 | **options** | [**ProviderConfigOptions**](ProviderConfigOptions.md) |  | [optional] |
+| **models** | [**Hash&lt;String, ProviderConfigModelsValue&gt;**](ProviderConfigModelsValue.md) |  | [optional] |
 
 ## Example
 
@@ -25,10 +25,10 @@ instance = OpencodeClient::ProviderConfig.new(
   env: null,
   id: null,
   npm: null,
-  models: null,
   whitelist: null,
   blacklist: null,
-  options: null
+  options: null,
+  models: null
 )
 ```
 

@@ -9,7 +9,9 @@
 | **vcs** | **String** |  | [optional] |
 | **name** | **String** |  | [optional] |
 | **icon** | [**ProjectUpdateRequestIcon**](ProjectUpdateRequestIcon.md) |  | [optional] |
+| **commands** | [**ProjectUpdateRequestCommands**](ProjectUpdateRequestCommands.md) |  | [optional] |
 | **time** | [**ProjectTime**](ProjectTime.md) |  |  |
+| **sandboxes** | **Array&lt;String&gt;** |  |  |
 
 ## Example
 
@@ -22,7 +24,9 @@ instance = OpencodeClient::Project.new(
   vcs: null,
   name: null,
   icon: null,
-  time: null
+  commands: null,
+  time: null,
+  sandboxes: null
 )
 ```
 

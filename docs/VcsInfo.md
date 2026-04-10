@@ -4,7 +4,8 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **branch** | **String** |  |  |
+| **branch** | **String** |  | [optional] |
+| **default_branch** | **String** |  | [optional] |
 
 ## Example
 
@@ -12,7 +13,8 @@
 require 'opencode_client'
 
 instance = OpencodeClient::VcsInfo.new(
-  branch: null
+  branch: null,
+  default_branch: null
 )
 ```
 

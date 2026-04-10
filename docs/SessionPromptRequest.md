@@ -8,8 +8,10 @@
 | **model** | [**SessionPromptRequestModel**](SessionPromptRequestModel.md) |  | [optional] |
 | **agent** | **String** |  | [optional] |
 | **no_reply** | **Boolean** |  | [optional] |
-| **tools** | **Hash&lt;String, Boolean&gt;** |  | [optional] |
+| **tools** | **Hash&lt;String, Boolean&gt;** | @deprecated tools and permissions have been merged, you can set permissions on the session itself now | [optional] |
+| **format** | [**OutputFormat**](OutputFormat.md) |  | [optional] |
 | **system** | **String** |  | [optional] |
+| **variant** | **String** |  | [optional] |
 | **parts** | [**Array&lt;SessionPromptRequestPartsInner&gt;**](SessionPromptRequestPartsInner.md) |  |  |
 
 ## Example
@@ -23,7 +25,9 @@ instance = OpencodeClient::SessionPromptRequest.new(
   agent: null,
   no_reply: null,
   tools: null,
+  format: null,
   system: null,
+  variant: null,
   parts: null
 )
 ```

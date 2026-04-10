@@ -5,15 +5,13 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **schema** | **String** | JSON schema reference for configuration validation | [optional] |
-| **theme** | **String** | Theme name to use for the interface | [optional] |
-| **keybinds** | [**KeybindsConfig**](KeybindsConfig.md) |  | [optional] |
 | **log_level** | [**LogLevel**](LogLevel.md) |  | [optional] |
-| **tui** | [**ConfigTui**](ConfigTui.md) |  | [optional] |
 | **server** | [**ServerConfig**](ServerConfig.md) |  | [optional] |
 | **command** | [**Hash&lt;String, ConfigCommandValue&gt;**](ConfigCommandValue.md) | Command configuration, see https://opencode.ai/docs/commands | [optional] |
+| **skills** | [**ConfigSkills**](ConfigSkills.md) |  | [optional] |
 | **watcher** | [**ConfigWatcher**](ConfigWatcher.md) |  | [optional] |
-| **plugin** | **Array&lt;String&gt;** |  | [optional] |
-| **snapshot** | **Boolean** |  | [optional] |
+| **snapshot** | **Boolean** | Enable or disable snapshot tracking. When false, filesystem snapshots are not recorded and undoing or reverting will not undo/redo file changes. Defaults to true. | [optional] |
+| **plugin** | [**Array&lt;ConfigPluginInner&gt;**](ConfigPluginInner.md) |  | [optional] |
 | **share** | **String** | Control sharing behavior:&#39;manual&#39; allows manual sharing via commands, &#39;auto&#39; enables automatic sharing, &#39;disabled&#39; disables all sharing | [optional] |
 | **autoshare** | **Boolean** | @deprecated Use &#39;share&#39; field instead. Share newly created sessions automatically | [optional] |
 | **autoupdate** | [**ConfigAutoupdate**](ConfigAutoupdate.md) |  | [optional] |
@@ -27,12 +25,12 @@
 | **mode** | [**ConfigMode**](ConfigMode.md) |  | [optional] |
 | **agent** | [**ConfigAgent**](ConfigAgent.md) |  | [optional] |
 | **provider** | [**Hash&lt;String, ProviderConfig&gt;**](ProviderConfig.md) | Custom provider configurations and model overrides | [optional] |
-| **mcp** | [**Hash&lt;String, McpAddRequestConfig&gt;**](McpAddRequestConfig.md) | MCP (Model Context Protocol) server configurations | [optional] |
+| **mcp** | [**Hash&lt;String, ConfigMcpValue&gt;**](ConfigMcpValue.md) | MCP (Model Context Protocol) server configurations | [optional] |
 | **formatter** | [**ConfigFormatter**](ConfigFormatter.md) |  | [optional] |
 | **lsp** | [**ConfigLsp**](ConfigLsp.md) |  | [optional] |
 | **instructions** | **Array&lt;String&gt;** | Additional instruction files or patterns to include | [optional] |
 | **layout** | [**LayoutConfig**](LayoutConfig.md) |  | [optional] |
-| **permission** | [**AgentConfigPermission**](AgentConfigPermission.md) |  | [optional] |
+| **permission** | [**PermissionConfig**](PermissionConfig.md) |  | [optional] |
 | **tools** | **Hash&lt;String, Boolean&gt;** |  | [optional] |
 | **enterprise** | [**ConfigEnterprise**](ConfigEnterprise.md) |  | [optional] |
 | **compaction** | [**ConfigCompaction**](ConfigCompaction.md) |  | [optional] |
@@ -45,15 +43,13 @@ require 'opencode_client'
 
 instance = OpencodeClient::Config.new(
   schema: null,
-  theme: null,
-  keybinds: null,
   log_level: null,
-  tui: null,
   server: null,
   command: null,
+  skills: null,
   watcher: null,
-  plugin: null,
   snapshot: null,
+  plugin: null,
   share: null,
   autoshare: null,
   autoupdate: null,

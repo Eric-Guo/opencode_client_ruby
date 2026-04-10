@@ -8,8 +8,10 @@
 | **description** | **String** |  | [optional] |
 | **agent** | **String** |  | [optional] |
 | **model** | **String** |  | [optional] |
-| **template** | **String** |  |  |
+| **source** | **String** |  | [optional] |
+| **template** | [**CommandTemplate**](CommandTemplate.md) |  |  |
 | **subtask** | **Boolean** |  | [optional] |
+| **hints** | **Array&lt;String&gt;** |  |  |
 
 ## Example
 
@@ -21,8 +23,10 @@ instance = OpencodeClient::Command.new(
   description: null,
   agent: null,
   model: null,
+  source: null,
   template: null,
-  subtask: null
+  subtask: null,
+  hints: null
 )
 ```
 

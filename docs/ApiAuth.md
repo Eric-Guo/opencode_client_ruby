@@ -6,6 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **type** | **String** |  |  |
 | **key** | **String** |  |  |
+| **metadata** | **Hash&lt;String, String&gt;** |  | [optional] |
 
 ## Example
 
@@ -14,7 +15,8 @@ require 'opencode_client'
 
 instance = OpencodeClient::ApiAuth.new(
   type: null,
-  key: null
+  key: null,
+  metadata: null
 )
 ```
 

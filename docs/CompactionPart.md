@@ -9,6 +9,8 @@
 | **message_id** | **String** |  |  |
 | **type** | **String** |  |  |
 | **auto** | **Boolean** |  |  |
+| **overflow** | **Boolean** |  | [optional] |
+| **tail_start_id** | **String** |  | [optional] |
 
 ## Example
 
@@ -20,7 +22,9 @@ instance = OpencodeClient::CompactionPart.new(
   session_id: null,
   message_id: null,
   type: null,
-  auto: null
+  auto: null,
+  overflow: null,
+  tail_start_id: null
 )
 ```
 

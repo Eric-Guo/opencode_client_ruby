@@ -5,8 +5,8 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **session_id** | **String** |  |  |
-| **permission_id** | **String** |  |  |
-| **response** | **String** |  |  |
+| **request_id** | **String** |  |  |
+| **reply** | **String** |  |  |
 
 ## Example
 
@@ -15,8 +15,8 @@ require 'opencode_client'
 
 instance = OpencodeClient::EventPermissionRepliedProperties.new(
   session_id: null,
-  permission_id: null,
-  response: null
+  request_id: null,
+  reply: null
 )
 ```
 
