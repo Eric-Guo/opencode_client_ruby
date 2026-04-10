@@ -123,7 +123,7 @@ module OpencodeClient
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
       return false if @success.nil?
-      success_validator = EnumAttributeValidator.new('Boolean', ["false"])
+      success_validator = EnumAttributeValidator.new('Boolean', ["false", false])
       return false unless success_validator.valid?(@success)
       return false if @error.nil?
       true
@@ -132,7 +132,7 @@ module OpencodeClient
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] success Object to be assigned
     def success=(success)
-      validator = EnumAttributeValidator.new('Boolean', ["false"])
+      validator = EnumAttributeValidator.new('Boolean', ["false", false])
       unless validator.valid?(success)
         fail ArgumentError, "invalid value for \"success\", must be one of #{validator.allowable_values}."
       end

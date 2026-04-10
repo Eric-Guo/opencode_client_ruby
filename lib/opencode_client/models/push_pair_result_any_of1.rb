@@ -153,7 +153,7 @@ module OpencodeClient
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
       return false if @enabled.nil?
-      enabled_validator = EnumAttributeValidator.new('Boolean', ["true"])
+      enabled_validator = EnumAttributeValidator.new('Boolean', ["true", true])
       return false unless enabled_validator.valid?(@enabled)
       return false if @hosts.nil?
       return false if @link.nil?
@@ -164,7 +164,7 @@ module OpencodeClient
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] enabled Object to be assigned
     def enabled=(enabled)
-      validator = EnumAttributeValidator.new('Boolean', ["true"])
+      validator = EnumAttributeValidator.new('Boolean', ["true", true])
       unless validator.valid?(enabled)
         fail ArgumentError, "invalid value for \"enabled\", must be one of #{validator.allowable_values}."
       end
