@@ -11,5 +11,5 @@ Generator version: 7.21.0
 =end
 
 module OpencodeClient
-  VERSION = '1.0.3'
+  VERSION = '1.4.3'
 end

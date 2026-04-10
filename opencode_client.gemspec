@@ -29,6 +29,7 @@ Gem::Specification.new do |s|
   s.metadata    = {}
 
   s.add_runtime_dependency 'httpx', '~> 1.0', '>= 1.0.0'
+  s.add_runtime_dependency 'ostruct'
 
   s.add_development_dependency 'rspec', '~> 3.6', '>= 3.6.0'
 
